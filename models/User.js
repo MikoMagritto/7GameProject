@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 const userSchema = new Schema(
   {
+    username: {
+      type: String,
+      // required: [true, "Pseudo is required."],
+    },
     email: {
       type: String,
       // required: [true, "Email is required."],
@@ -13,10 +17,6 @@ const userSchema = new Schema(
       type: String,
       // required: [true, "Password is required."],
       minlength: 6,
-    },
-    pseudo: {
-      type: String,
-      // required: [true, "Pseudo is required."],
     },
     height :{
       type: String,
