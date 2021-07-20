@@ -1,14 +1,14 @@
 const express = require("express");
 const authRoutes = express.Router();
 const bcrypt = require("bcryptjs");
+const fileUpload = require('../configs/cloudinary.config')
 // require the user model !!!!
 const User = require("../models/User");
 
-authRoutes.post("/signup", (req, res, next) => {
+authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
 
-	const { username, password, email, age, height, level, avatar } = req.body;
-
-
+	const { username, password, email, age, height, level } = req.body;
+	// const avatar = req.file.path;
 
 	if (!username || !password) {
 		res.status(400).json({ message: "Provide username and password" });
@@ -38,7 +38,7 @@ authRoutes.post("/signup", (req, res, next) => {
 				age: age,
 				height: height,
 				level: level,
-				avatar: avatar,
+				avatar: req.file.path,
 
 			});
 			aNewUser
@@ -88,8 +88,8 @@ authRoutes.get("/loggedin", (req, res, next) => {
 	res.status(403).json({ message: "Unauthorized" });
 });
 //EDIT
-authRoutes.put("/edit", (req, res, next) => {
-	const { username } = req.body;
+authRoutes.put("/edit", fileUpload.single("avatar"), (req, res, next) => {
+	const { username, email, age, height, level, avatar } = req.body;
 	const id = req.session.currentUser._id;
 	//console.log(id);
 	if (!req.session.currentUser) {
@@ -98,7 +98,7 @@ authRoutes.put("/edit", (req, res, next) => {
 	}
 	User.findByIdAndUpdate(
 		{ _id: id },
-		{ username },
+		{ username, email, age, height, level, avatar },
 		{ new: true }
 	)
 		.then((newUser) => {
@@ -107,4 +107,11 @@ authRoutes.put("/edit", (req, res, next) => {
 		})
 		.catch(next);
 });
+
+authRoutes.get('/auth/delete/:id', (req, res) => {
+  const id = req.params.id;
+  User.findByIdAndDelete(id).then(() => res.redirect('/')).catch(error => console.log(error));
+});
+
+
 module.exports = authRoutes;
