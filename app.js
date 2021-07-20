@@ -74,6 +74,7 @@ const index = require('./routes/index');
 app.use('/', index);
 
 app.use("/auth", require("./routes/auth-routes"));
+app.use("/games",require("./routes/games-routes"));
 
 
 module.exports = app;
