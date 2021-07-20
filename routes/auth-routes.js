@@ -6,7 +6,7 @@ const User = require("../models/User");
 
 authRoutes.post("/signup", (req, res, next) => {
 
-	const { username, password, mail, age, height, level, avatar } = req.body;
+	const { username, password, email, age, height, level, avatar } = req.body;
 
 
 
@@ -34,7 +34,7 @@ authRoutes.post("/signup", (req, res, next) => {
 			const aNewUser = new User({
 				username: username,
 				passwordHash: hashPass,
-				mail: mail,
+				email: email,
 				age: age,
 				height: height,
 				level: level,
@@ -66,7 +66,7 @@ authRoutes.post("/login", (req, res, next) => {
 				return next(new Error("No user with that username"));
 			}
 			// compareSync
-			if (bcrypt.compareSync(password, user.password) !== true) {
+			if (bcrypt.compareSync(password, user.passwordHash) !== true) {
 				return next(new Error("Wrong credentials"));
 			} else {
 				req.session.currentUser = user;

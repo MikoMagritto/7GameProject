@@ -32,7 +32,7 @@ const userSchema = new Schema(
       enum : ["Débutant","Amateur","Confirmé","ProA","ProB"],
     },
     avatar :{
-      image: String,
+      type: String,
       // required: true,
   }
   },
