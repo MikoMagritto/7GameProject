@@ -17,7 +17,7 @@ gamesRoutes.post("/", (req, res, next) => {
     organisator: req.session.currentUser,
     name: name,
     players: players,
-    numPlayers : 0,
+    numPlayers : numPlayers,
     levelGame: levelGame,
     field : field,
     mood:mood,

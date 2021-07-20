@@ -38,10 +38,6 @@ const gameSchema = new Schema(
       enum: ["1x1","2x2","3x3","4x4","5x5"]
     },
 
-    image:{
-      type: Schema.Types.ObjectId, ref: 'Field',
-    },
-
   }
 )
 

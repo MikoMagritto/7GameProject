@@ -5,10 +5,11 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
 authRoutes.post("/signup", (req, res, next) => {
-	const username = req.body.username;
-	const password = req.body.password;
-	
-	
+
+	const { username, password, mail, age, height, level, avatar } = req.body;
+
+
+
 	if (!username || !password) {
 		res.status(400).json({ message: "Provide username and password" });
 		return;
@@ -32,7 +33,12 @@ authRoutes.post("/signup", (req, res, next) => {
 			const hashPass = bcrypt.hashSync(password, salt);
 			const aNewUser = new User({
 				username: username,
-				password: hashPass,
+				passwordHash: hashPass,
+				mail: mail,
+				age: age,
+				height: height,
+				level: level,
+				avatar: avatar,
 
 			});
 			aNewUser
@@ -83,7 +89,7 @@ authRoutes.get("/loggedin", (req, res, next) => {
 });
 //EDIT
 authRoutes.put("/edit", (req, res, next) => {
-	const { username} = req.body;
+	const { username } = req.body;
 	const id = req.session.currentUser._id;
 	//console.log(id);
 	if (!req.session.currentUser) {
@@ -92,7 +98,7 @@ authRoutes.put("/edit", (req, res, next) => {
 	}
 	User.findByIdAndUpdate(
 		{ _id: id },
-		{ username},
+		{ username },
 		{ new: true }
 	)
 		.then((newUser) => {
