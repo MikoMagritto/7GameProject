@@ -8,7 +8,7 @@ const User = require("../models/User");
 authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
 
 	const { username, password, email, age, height, level } = req.body;
-	// const avatar = req.file.path;
+	const avatar = req.file.path;
 
 	if (!username || !password) {
 		res.status(400).json({ message: "Provide username and password" });
@@ -41,6 +41,11 @@ authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
 				avatar: req.file.path,
 
 			});
+			
+			if (!req.file) {
+				next(new Error('No file uploaded!'));
+				return;
+			}
 			aNewUser
 				.save()
 				.then(() => {
@@ -88,17 +93,22 @@ authRoutes.get("/loggedin", (req, res, next) => {
 	res.status(403).json({ message: "Unauthorized" });
 });
 //EDIT
-authRoutes.put("/edit", fileUpload.single("avatar"), (req, res, next) => {
-	const { username, email, age, height, level, avatar } = req.body;
+authRoutes.put("/edit/:id", fileUpload.single("avatar"), (req, res, next) => {
+	//console.log("editRoad")
+	const { username, email, age, height, level } = req.body;
+	const data = { username, email, age, height, level };
 	const id = req.session.currentUser._id;
-	//console.log(id);
+	console.log(id);
 	if (!req.session.currentUser) {
 		res.status(401).json({ message: "You need to be logged in!" });
 		return;
 	}
+	if(req.file){
+data.avatar = req.file.path;
+	}
 	User.findByIdAndUpdate(
 		{ _id: id },
-		{ username, email, age, height, level, avatar },
+		data,
 		{ new: true }
 	)
 		.then((newUser) => {
