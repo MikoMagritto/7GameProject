@@ -34,11 +34,11 @@ gamesRoutes.post("/add", (req, res, next) => {
     players: players,
     numPlayers: numPlayers,
     levelGame: levelGame,
-    //field: field,
     mood: mood,
     date: date,
     typeGame: typeGame,
-    //image,
+    //field: field, ---------> mettre IdField.
+    //image, -------> Mettre image du terrain.
   })
 
   aNewGame
