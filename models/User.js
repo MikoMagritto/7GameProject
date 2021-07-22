@@ -34,8 +34,12 @@ const userSchema = new Schema(
     avatar :{
       type: String,
       // required: true,
-  }
   },
+  role :{
+    type: String,
+    enum : ["user","admin"]
+  },
+},
   {
     timestamps: true,
   }

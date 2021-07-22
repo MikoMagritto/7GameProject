@@ -8,8 +8,12 @@ const User = require("../models/User");
 authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
 
 	const { username, password, email, age, height, level } = req.body;
-	const avatar = req.file.path;
 
+	let role;
+	if (email==="admin@admin.fr"){
+		role = "admin"
+	}
+	else {role="user"}
 	if (!username || !password) {
 		res.status(400).json({ message: "Provide username and password" });
 		return;
@@ -38,14 +42,15 @@ authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
 				age: age,
 				height: height,
 				level: level,
-				avatar: req.file.path,
+				// avatar: req.file.path,
+				role : role,
 
 			});
 			
-			if (!req.file) {
-				next(new Error('No file uploaded!'));
-				return;
-			}
+			// if (!req.file) {
+			// 	next(new Error('No file uploaded!'));
+			// 	return;
+			// }
 			aNewUser
 				.save()
 				.then(() => {
