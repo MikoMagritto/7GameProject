@@ -16,20 +16,21 @@ fieldRoutes.get("/",(req,res,next)=>{
 
 fieldRoutes.post("/createFields", (req, res, next) => {
   const organisator = req.session.currentUser;
+  if (req.session.currentUser.role==="admin"){
   const {
     name, longitude, lattitude, img, availibility} = req.body;
 
-  if (!name || !img || !availibility) {
-    res.status(400).json({ message: "informations missing" });
-    return;
-  }
+  // if (!name || !availibility) {
+  //   res.status(400).json({ message: "informations missing" });
+  //   return;
+  // }
 
   const aNewField = new Field({
     organisator: req.session.currentUser._id,
     name: name,
     longitude: longitude,
     lattitude : lattitude,
-    img: img,
+    // img: img,
     availibility : availibility,
   })
 
@@ -39,7 +40,10 @@ fieldRoutes.post("/createFields", (req, res, next) => {
     res.status(200).json(aNewField)
   })
 
-
+}
+else{
+  res.status(403).json({message:'not author autorized'})
+}
 })
 
 fieldRoutes.put("/edit/:id", (req, res, next) => {

@@ -46,13 +46,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 //Session settings
-app.use(
-	session({
-		secret: "some secret goes here",
-		resave: true,
-		saveUninitialized: true,
-	})
-);
+// app.use(
+// 	session({
+// 		secret: "some secret goes here",
+// 		resave: true,
+// 		saveUninitialized: true,
+// 	})
+// );
+
+require('./configs/session.config')(app);
 
 
 // default value for title local
