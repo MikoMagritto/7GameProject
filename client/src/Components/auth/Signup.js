@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { signup } from './auth-service';
+import { uploadFile } from './auth-service';
+import { saveNewThing } from './auth-service';
 
 import { Link } from 'react-router-dom';
 
@@ -28,12 +30,15 @@ export default class Signup extends React.Component {
 
 
     signup(username, password, email, height, age, level, avatar)
+
       .then(response => {
         console.log("response client :", response);
         this.setState({ username: "", password: "", email: "", height: "", age: "", level: "", avatar: "" });
         this.props.addUser(response);
       })
       .catch(error => console.log(error))
+
+
   }
 
   handleChange = (event) => {
@@ -44,21 +49,23 @@ export default class Signup extends React.Component {
   }
   fileChange = (e) => {
     console.log('The file to be uploaded is: ', e.target.files[0]);
- 
+    
+
     const uploadData = new FormData();
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new thing in '/api/things/create' POST route
     uploadData.append('avatar', e.target.files[0]);
- 
-    signup(uploadData)
+
+    uploadFile(uploadData)
       .then(response => {
-        // console.log('response is: ', response);
+        console.log('response is: ', response);
         // after the console.log we can see that response carries 'secure_url' which we can use to update the state
         this.setState({ avatar: response.avatar });
       })
       .catch(err => {
         console.log('Error while uploading the file: ', err);
       });
+
   };
 
   render() {
@@ -98,7 +105,7 @@ export default class Signup extends React.Component {
           <p>
             <label>
               <em>Age</em>
-              <input type="number" name="age" value={this.state.age} onChange={(e) => this.handleChange(e)}/>
+              <input type="number" name="age" value={this.state.age} onChange={(e) => this.handleChange(e)} />
             </label>
           </p>
 
@@ -119,7 +126,7 @@ export default class Signup extends React.Component {
           <p>
             <label>
               <em>Avatar</em>
-              <input type="file" name="avatar" value={this.state.avatar} onChange={(e) => this.fileChange(e)} />
+              <input type="file" onChange={(e) => this.fileChange(e)} />
             </label>
           </p>
           <button>Submit</button>

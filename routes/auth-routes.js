@@ -5,15 +5,15 @@ const fileUpload = require('../configs/cloudinary.config')
 // require the user model !!!!
 const User = require("../models/User");
 
-authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
+authRoutes.post("/signup", (req, res, next) => {
 
-	const { username, password, email, age, height, level } = req.body;
+	const { username, password, email, age, height, level, avatar } = req.body;
 
 	let role;
-	if (email==="admin@admin.fr"){
+	if (email === "admin@admin.fr") {
 		role = "admin"
 	}
-	else {role="user"}
+	else { role = "user" }
 	if (!username || !password) {
 		res.status(400).json({ message: "Provide username and password" });
 		return;
@@ -42,11 +42,11 @@ authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
 				age: age,
 				height: height,
 				level: level,
-				avatar: req.file && req.file.path,
-				role : role,
+				avatar: avatar,
+				role: role,
 
 			});
-			
+
 			// if (!req.file) {
 			// 	next(new Error('No file uploaded!'));
 			// 	return;
@@ -70,6 +70,14 @@ authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
 			res.status(500).json({ message: "Username check went bad." });
 		});
 });
+
+authRoutes.post("/upload", fileUpload.single("avatar"), (req, res, next) => {
+	console.log("file is: ", req.file);
+	// get secure_url from the file object and save it in the
+	// variable 'secure_url', but this can be any name, just make sure you remember to use the same in frontend
+	res.json({ avatar: req.file && req.file.path });
+});
+
 authRoutes.post("/login", (req, res, next) => {
 	const { username, password } = req.body;
 	User.findOne({ username })
@@ -110,8 +118,8 @@ authRoutes.put("/edit/:id", fileUpload.single("avatar"), (req, res, next) => {
 		res.status(401).json({ message: "You need to be logged in!" });
 		return;
 	}
-	if(req.file){
-data.avatar = req.file.path;
+	if (req.file) {
+		data.avatar = req.file.path;
 	}
 	User.findByIdAndUpdate(
 		{ _id: id },
@@ -126,8 +134,8 @@ data.avatar = req.file.path;
 });
 
 authRoutes.get('/auth/delete/:id', (req, res) => {
-  const id = req.params.id;
-  User.findByIdAndDelete(id).then(() => res.redirect('/')).catch(error => console.log(error));
+	const id = req.params.id;
+	User.findByIdAndDelete(id).then(() => res.redirect('/')).catch(error => console.log(error));
 });
 
 
