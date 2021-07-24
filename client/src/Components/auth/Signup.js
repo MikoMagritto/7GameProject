@@ -41,8 +41,7 @@ render() {
       {this.state.error && (              
       <p className="error">
         {this.state.error}
-      </p>
-                  )}        
+      </p>)}        
       <p>
         <label>
           <em>Username</em>
