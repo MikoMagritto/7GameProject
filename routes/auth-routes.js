@@ -42,7 +42,7 @@ authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
 				age: age,
 				height: height,
 				level: level,
-				// avatar: req.file.path,
+				avatar: req.file && req.file.path,
 				role : role,
 
 			});
@@ -59,12 +59,14 @@ authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
 					res.status(200).json(aNewUser);
 				})
 				.catch((err) => {
+					console.log(err);
 					res
 						.status(400)
 						.json({ message: "Saving user to database went wrong." });
 				});
 		})
 		.catch((err) => {
+			console.log(err)
 			res.status(500).json({ message: "Username check went bad." });
 		});
 });

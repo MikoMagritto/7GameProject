@@ -19,7 +19,7 @@ const userSchema = new Schema(
       minlength: 6,
     },
     height :{
-      type: String,
+      type: Number,
       // required: [true, "Height is required."],
     },
     age :{
