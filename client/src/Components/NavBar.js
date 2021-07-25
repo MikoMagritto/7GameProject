@@ -1,17 +1,32 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../Components/NavBar.css";
 
 export default class NavBar extends Component {
-    render() {
-        return ( <
-            div >
-            <
-            Link to = '/signup' > S 'inscrire</Link> <
-            Link to = '/login' > Se connecter < /Link> <
-            Link to = '/auth' > Mon profil < /Link>
-
-            <
-            /div>
-        )
-    }
+  render() {
+    return (
+      <div className="navBar">
+        <ul>
+          <li>
+            <Link to="/signup"> S'inscrire</Link>
+          </li>
+          <li>
+            <Link to="/login"> Se connecter </Link>
+          </li>
+          <li>
+            <Link to="/">Notre concept</Link>
+          </li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/">Our Solution</Link>
+          </li>
+          <li>
+            <Link to="/">Contact</Link>
+          </li>
+        </ul>
+      </div>
+    );
+  }
 }
