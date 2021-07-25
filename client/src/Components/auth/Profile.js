@@ -46,12 +46,6 @@ export default class Profile extends Component {
         <p>
           <h3> Profil Pic </h3> <img src={this.props.user.data.avatar} />
         </p>
-        {/* <p>
-                            <label>
-                              <h3>Avatar</h3>
-                              <input type="file" onChange={(e) => this.fileChange(e)} />
-                            </label>
-                          </p> */}
         <div className="cta">
           <Link to='/'>
             <button className="btn logout" onClick={this.logout}>
