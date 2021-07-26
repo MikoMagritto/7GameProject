@@ -6,6 +6,8 @@ import { Switch, Route } from "react-router";
 import LoginUser from "./Components/auth/Login";
 import NavBar from "./Components/NavBar";
 import Profile from "./Components/auth/Profile";
+import Home from "./Components/auth/Home";
+import Concept from "./Components/auth/Concept";
 
 class App extends Component {
   state = {
@@ -62,6 +64,9 @@ class App extends Component {
               <Profile updateUser={this.addTheUser} user={this.state.user} />
             )}
           />
+
+          <Route exact path="/home" component={Home} /> 
+          <Route exact path="/concept" component={Concept} />
         </Switch>
       </div>
     );

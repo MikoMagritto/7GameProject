@@ -14,16 +14,16 @@ export default class NavBar extends Component {
             <Link to="/login"> Se connecter </Link>
           </li>
           <li>
-            <Link to="/">Notre concept</Link>
+            <Link to="/concept">Notre concept</Link>
           </li>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
           <li>
-            <Link to="/">Our Solution</Link>
+            <Link to="/our-solution">Our Solution</Link>
           </li>
           <li>
-            <Link to="/">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </div>
