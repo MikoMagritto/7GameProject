@@ -53,23 +53,3 @@ const NavBar = (props) => {
   }
 
 export default NavBar;
-{
-  /* <nav className="nav-style">
-{props.userInSession ? (
-  <ul>
-    <li>Welcome, {props.userInSession.username}</li>
-    <li>
-      <Link to='/projects' style={{textDecoration: 'none'}}>Projects</Link>
-    </li>
-  </ul>
-) : (
-  <ul>
-    <li>
-      <Link to='/signup' style={{textDecoration: 'none'}}>Signup</Link>
-    </li>
-  </ul>
-)}
-</nav>
-)
-} */
-}
