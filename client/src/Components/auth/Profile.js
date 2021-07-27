@@ -21,6 +21,9 @@ export default class Profile extends Component {
 //   };
 
   render() {
+      if(!this.props.user){
+          return "loading";
+      }
     return (
       // <Link to='/logout'>Se déconnecter</Link>
 
@@ -29,22 +32,22 @@ export default class Profile extends Component {
         <p>
           <h3> Username </h3>
           <br />
-          <span> {this.props.user.data.username} </span>
+          <span> {this.props.user.username} </span>
         </p>
         <p>
-          <h3> Height </h3> <span> {this.props.user.data.height} </span>
+          <h3> Height </h3> <span> {this.props.user.height} </span>
         </p>
         <p>
-          <h3> Age </h3> <span> {this.props.user.data.age} </span>
+          <h3> Age </h3> <span> {this.props.user.age} </span>
         </p>
         <p>
-          <h3> email </h3> <span> {this.props.user.data.email} </span>
+          <h3> email </h3> <span> {this.props.user.email} </span>
         </p>
         <p>
-          <h3> Level </h3> <span> {this.props.user.data.level} </span>
+          <h3> Level </h3> <span> {this.props.user.level} </span>
         </p>
         <p>
-          <h3> Profil Pic </h3> <img src={this.props.user.data.avatar} />
+          <h3> Profil Pic </h3> <img src={this.props.user.avatar} />
         </p>
         <div className="cta">
           <Link to='/'>

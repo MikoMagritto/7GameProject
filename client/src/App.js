@@ -16,26 +16,26 @@ class App extends Component {
 
   addTheUser = (response) => {
     console.log("user logged is :", response);
-    this.setState({ user: response });
-    // if(this.state.user === null) {
-    //   loggedin()
-    //   .then(response => {
-    //     this.setState({user:response})
-    //   })
-    //   .catch(err=> {
-    //     console.log(err);
-    //     this.setState({user:false})
-    //   })
-    // }
+    // this.setState({ user: response });
+    if(this.state.user === null) {
+      loggedin()
+      .then(response => {
+        this.setState({user:response})
+      })
+      .catch(err=> {
+        console.log(err);
+        this.setState({user:false})
+      })
+    }
   };
 
   updateUser = (data) => {
     this.setState({ user: data });
   };
 
-  // componentDidMount(){
-  //   this.addTheUser();
-  // }
+  componentDidMount(){
+    this.addTheUser();
+  }
 
   render() {
     return (

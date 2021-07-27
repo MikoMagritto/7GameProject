@@ -23,6 +23,12 @@ function signup(username, password, email, height, age, level, avatar, role) {
 }
 export { signup }
 
+function loggedin() {
+    return service.get('/loggedin')
+        .then(response => response.data)
+}
+export { loggedin }
+
 function uploadFile(file) {
     console.log("upload time", file);
     return service.post('/upload', file)
@@ -36,11 +42,7 @@ function login(username, password) {
 }
 export { login }
 
-function loggedin() {
-    return service.get('/loggedin')
-        .then(response => response.data)
-}
-export { loggedin }
+
 
 function logout() {
     return this.service.get('/logout', {})
