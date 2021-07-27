@@ -22,15 +22,19 @@ export default class LoginUser extends Component {
 
     //login(username, password)
     axios
-      .post("http://localhost:5000/auth/login", {
-        username: this.state.username,
-        password: this.state.password,
-      })
+      .post(
+        "http://localhost:5000/auth/login",
+        {
+          username: this.state.username,
+          password: this.state.password,
+        },
+        { withCredentials: true }
+      )
       .then((response) => {
         console.log(response);
         this.setState({ username: "", password: "" });
         this.props.updateUser(response);
-        this.props.history.push('/auth');
+        this.props.history.push("/auth");
       })
       .catch((err) => this.setState({ error: err.response.data.message }));
   };
