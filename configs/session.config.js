@@ -6,7 +6,7 @@ module.exports = app => {
   app.use(
     session({
       secret: "some secret",
-      resave: false,
+      resave: true,
       saveUninitialized: true,
       cookie: {
         maxAge: 600000 // 60 * 1000 ms === 1 min

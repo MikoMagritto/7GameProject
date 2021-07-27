@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar userInSession={this.state.user} />
 
         <Switch>
           <Route

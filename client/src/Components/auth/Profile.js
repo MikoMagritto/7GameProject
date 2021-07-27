@@ -11,14 +11,14 @@ export default class Profile extends Component {
     });
   };
 
-  handleUpload = (event) => {
-    let formData = new FormData();
-    formData.append("photo", event.target.files[0]);
+//   handleUpload = (event) => {
+//     let formData = new FormData();
+//     formData.append("photo", event.target.files[0]);
 
-    service.upload(formData).then((response) => {
-      this.props.updateUser(response);
-    });
-  };
+//     service.upload(formData).then((response) => {
+//       this.props.updateUser(response);
+//     });
+//   };
 
   render() {
     return (
