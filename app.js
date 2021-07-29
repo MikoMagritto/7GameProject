@@ -71,7 +71,7 @@ app.use('/', index);
 
 app.use("/auth", require("./routes/auth-routes"));
 app.use("/games",require("./routes/games-routes"));
-app.use("/admin",require("./routes/field-routes"));
+app.use("/fields",require("./routes/field-routes"));
 
 
 module.exports = app;

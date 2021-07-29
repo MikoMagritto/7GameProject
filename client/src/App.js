@@ -8,11 +8,12 @@ import NavBar from "./Components/NavBar";
 import Profile from "./Components/auth/Profile";
 import Home from "./Components/auth/Home";
 import Concept from "./Components/auth/Concept";
-import CreateGame from './Components/Create-Game';
+import CreateGame from "./Components/CreateGame"
 
 class App extends Component {
   state = {
     user: null,
+    field: [],
   };
 
   addTheUser = (response) => {
@@ -66,14 +67,16 @@ class App extends Component {
             )}
           />
 
-          <Route
+          {/* <Route
             exact
             path="/games/add"
-            render={() => (
-              <CreateGame />
-            )}
+            render={() => <CreateGame field={this.state.field} />}
+          /> */}
+          <Route
+            exact
+            path="/fields"
+            component={CreateGame}
           />
-
           <Route exact path="/" component={Home} />
           <Route exact path="/concept" component={Concept} />
         </Switch>

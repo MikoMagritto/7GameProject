@@ -7,8 +7,8 @@ const fileUpload = require('../configs/cloudinary.config');
 
 fieldRoutes.get("/", (req, res, next) => {
   Field.find()
-    .then(AllFieldFromDb => {
-      console.log("AllFieldsFromDb", AllFieldsFromDb)
+    .then(AllFieldsFromDb => {
+      // console.log("AllFieldsFromDb", AllFieldsFromDb)
       res.json(AllFieldsFromDb);
     })
     .catch(err => console.log(err))
