@@ -23,7 +23,7 @@ const gameSchema = new Schema(
     },
 
     field: {
-      type: Schema.Types.ObjectId, ref: 'Field',
+      type: String,
     },
 
     mood: {

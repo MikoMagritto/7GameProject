@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-
 export default class CreateGame extends Component {
   state = {
     fields: [],
+    field:"",
     name: "",
     date: "",
     hour: "",
     mood: "",
     numPlayers: "",
-    level: "",
+    levelGame: "",
     typeGame: "",
   };
 
   getFields = () => {
     axios.get("http://localhost:5000/fields").then((AllFieldsFromDb) => {
-     console.log(AllFieldsFromDb);
+      // console.log("AllfieldsReact : ", AllFieldsFromDb.data);
       this.setState({
-        fields: AllFieldsFromDb,
+        fields: AllFieldsFromDb.data,
       });
     });
   };
@@ -31,7 +31,7 @@ export default class CreateGame extends Component {
     const hour = this.state.hour;
     const mood = this.state.mood;
     const numPlayers = this.state.numPlayers;
-    const level = this.state.level;
+    const level = this.state.levelGame;
     const typeGame = this.state.typeGame;
 
     axios
@@ -42,11 +42,11 @@ export default class CreateGame extends Component {
         hour: this.state.hour,
         mood: this.state.mood,
         numPlayers: this.state.numPlayers,
-        level: this.state.level,
+        levelGame: this.state.levelGame,
         typeGame: this.state.typeGame,
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         this.setState({
           field: "",
           name: "",
@@ -54,7 +54,7 @@ export default class CreateGame extends Component {
           hour: "",
           mood: "",
           numPlayers: "",
-          level: "",
+          levelGame: "",
           typeGame: "",
         });
         // this.props.updateUser(response);
@@ -67,7 +67,7 @@ export default class CreateGame extends Component {
     this.setState({ [name]: value });
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.getFields();
   }
   render() {
@@ -75,16 +75,11 @@ export default class CreateGame extends Component {
       <div>
         <form onSubmit={this.handleFormSubmit}>
           <label> Field </label>
-          <div>
-              {/* {this.state.fields.map(field =>{
-                  return(
-                      <p>
-                        {field.name}
-                      </p>
-                  )
-              })} */}
-              {/* {this.state.fields[0].name} */}
-          </div>
+          <select name="field" onChange={(e) => this.handleChange(e)}>
+            {this.state.fields.map((field) => {
+              return <option value={field.name}>{field.name}</option>;
+            })}
+          </select>
 
           {/* <input
             type="text"
@@ -115,24 +110,24 @@ export default class CreateGame extends Component {
           />
           <label> Mood </label>
           <select
-            name="Mood"
-            value={this.state.level}
+            name="mood"
+            value={this.state.mood}
             onChange={(e) => this.handleChange(e)}
           >
             <option value="Fun">Fun</option>
-            <option value="Competitif">Competitif</option>
+            <option value="Competitive">Competitif</option>
           </select>
           <label> NumPlayers </label>
           <input
             type="number"
             name="numPlayers"
-            value={this.state.password}
+            value={this.state.numPlayers}
             onChange={(e) => this.handleChange(e)}
           />
           <label> Level </label>
           <select
-            name="level"
-            value={this.state.level}
+            name="levelGame"
+            value={this.state.levelGame}
             onChange={(e) => this.handleChange(e)}
           >
             <option value="Débutant">Débutant</option>

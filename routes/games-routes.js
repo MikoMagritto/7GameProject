@@ -25,7 +25,8 @@ gamesRoutes.post("/add", (req, res, next) => {
     date,
     typeGame,
   };
-  console.log("data is : ", data);
+  // console.log("data is : ", data);
+  console.log("organisator is : ", req.session.currentUser);
 
   // if (!name || !levelGame || !field || !mood) {
   //   res.status(400).json({ message: "informations missing" });
@@ -41,7 +42,7 @@ gamesRoutes.post("/add", (req, res, next) => {
     mood: mood,
     date: date,
     typeGame: typeGame,
-    //field: field, ---------> mettre IdField.
+    field: field,
     //image, -------> Mettre image du terrain.
   });
 
@@ -69,7 +70,7 @@ gamesRoutes.put("/edit/:id", (req, res, next) => {
     typeGame,
   };
 
-  console.log("data is : ", data);
+  // console.log("data is : ", data);
 
   const id = req.params.id;
   //console.log(id);
