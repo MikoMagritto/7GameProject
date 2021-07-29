@@ -20,10 +20,10 @@ const NavBar = (props) => {
               <Link to="/">Contact</Link>
             </li>
             <li>
-              <Link to="/">Find a game</Link>
+              <Link to="/games">Find a game</Link>
             </li>
             <li>
-              <Link to="/">Create a game</Link>
+              <Link to="/games/add">Create a game</Link>
             </li>
           </ul>
         ) : (

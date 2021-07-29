@@ -7,7 +7,7 @@ const fieldSchema = new Schema(
     longitude: { type: Number },
     lattitude:{type: Number},
     img:{ type: String },
-    availibility:{ type: Date }
+    availibility:{ type: String }
   },
   {
     timestamps: true,
