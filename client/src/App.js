@@ -16,7 +16,7 @@ class App extends Component {
 
   addTheUser = (response) => {
     console.log("user logged is :", response);
-    // this.setState({ user: response });
+     this.setState({ user: response });
     if(this.state.user === null) {
       loggedin()
       .then(response => {

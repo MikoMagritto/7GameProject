@@ -4,7 +4,7 @@ const Field = require("../models/Field.model.js");
 
 mongoose.connect('mongodb://localhost/sevengameproject',{
 
-// mongoose.connect(`mongodb+srv://ChloeT:AxC36oVEkWZF775W@cluster0.jwh3k.mongodb.net/sevengameproject`, {
+//  mongoose.connect(`mongodb+srv://ChloeT:AxC36oVEkWZF775W@cluster0.jwh3k.mongodb.net/sevengameproject`, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true,

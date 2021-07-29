@@ -22,7 +22,7 @@ export default class LoginUser extends Component {
 
     login(username, password)
     .then((response) => {
-          console.log(response);
+          // console.log(response);
           this.setState({ username: "", password: "" });
           this.props.updateUser(response);
           this.props.history.push("/auth");
