@@ -8,6 +8,7 @@ import NavBar from "./Components/NavBar";
 import Profile from "./Components/auth/Profile";
 import Home from "./Components/auth/Home";
 import Concept from "./Components/auth/Concept";
+import CreateGame from './Components/Create-Game';
 
 class App extends Component {
   state = {
