@@ -24,7 +24,7 @@ export default class Profile extends Component {
     return (
       // <Link to='/logout'>Se déconnecter</Link>
 
-      <div>
+      <div className = "profile">
         <h1> Profile </h1>
         <p>
           <h3> Username </h3>
