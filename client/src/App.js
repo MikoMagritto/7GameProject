@@ -16,16 +16,16 @@ class App extends Component {
 
   addTheUser = (response) => {
     console.log("user logged is :", response);
-     this.setState({ user: response });
-    if(this.state.user === null) {
+    this.setState({ user: response });
+    if (this.state.user === null) {
       loggedin()
-      .then(response => {
-        this.setState({user:response})
-      })
-      .catch(err=> {
-        console.log(err);
-        this.setState({user:false})
-      })
+        .then((response) => {
+          this.setState({ user: response });
+        })
+        .catch((err) => {
+          console.log(err);
+          this.setState({ user: false });
+        });
     }
   };
 
@@ -33,7 +33,7 @@ class App extends Component {
     this.setState({ user: data });
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.addTheUser();
   }
 
@@ -65,7 +65,15 @@ class App extends Component {
             )}
           />
 
-          <Route exact path="/" component={Home} /> 
+          <Route
+            exact
+            path="/games/add"
+            render={() => (
+              <CreateGame />
+            )}
+          />
+
+          <Route exact path="/" component={Home} />
           <Route exact path="/concept" component={Concept} />
         </Switch>
       </div>

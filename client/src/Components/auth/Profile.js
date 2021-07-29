@@ -55,6 +55,11 @@ export default class Profile extends Component {
               Logout
             </button>
           </Link>
+          <Link to="/games/add">
+            <button className="btn add">
+              Create a game
+            </button>
+          </Link>
         </div>
       </div>
     );

@@ -5,11 +5,12 @@ export default class ListGame extends Component {
   state = {
     games: [],
   };
+  
   getGames = () => {
     axios
       .get("http://localhost:3000/games")
       .then((response) => {
-        console.log("hello", response);
+        console.log("games :", response);
         this.setState({ games: response });
       })
       .catch((err) => console.log(err));
