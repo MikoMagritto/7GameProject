@@ -8,6 +8,7 @@ import NavBar from "./Components/NavBar";
 import Profile from "./Components/auth/Profile";
 import Home from "./Components/auth/Home";
 import Concept from "./Components/auth/Concept";
+import CreateGame from './Components/Create-Game';
 
 class App extends Component {
   state = {
@@ -17,25 +18,25 @@ class App extends Component {
   addTheUser = (response) => {
     console.log("user logged is :", response);
     this.setState({ user: response });
-    // if(this.state.user === null) {
-    //   loggedin()
-    //   .then(response => {
-    //     this.setState({user:response})
-    //   })
-    //   .catch(err=> {
-    //     console.log(err);
-    //     this.setState({user:false})
-    //   })
-    // }
+    if (this.state.user === null) {
+      loggedin()
+        .then((response) => {
+          this.setState({ user: response });
+        })
+        .catch((err) => {
+          console.log(err);
+          this.setState({ user: false });
+        });
+    }
   };
 
   updateUser = (data) => {
     this.setState({ user: data });
   };
 
-  // componentDidMount(){
-  //   this.addTheUser();
-  // }
+  componentDidMount() {
+    this.addTheUser();
+  }
 
   render() {
     return (
@@ -65,7 +66,15 @@ class App extends Component {
             )}
           />
 
-          <Route exact path="/" component={Home} /> 
+          <Route
+            exact
+            path="/games/add"
+            render={() => (
+              <CreateGame />
+            )}
+          />
+
+          <Route exact path="/" component={Home} />
           <Route exact path="/concept" component={Concept} />
         </Switch>
       </div>

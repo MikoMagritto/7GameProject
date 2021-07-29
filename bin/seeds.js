@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Field = require("../models/Field");
 
-//mongoose.connect('mongodb://localhost/sevengameproject',{
+// mongoose.connect('mongodb://localhost/sevengameproject',{
 
 mongoose.connect(`mongodb+srv://ChloeT:AxC36oVEkWZF775W@cluster0.jwh3k.mongodb.net/sevengameproject`, {
   useCreateIndex: true,
