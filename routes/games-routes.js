@@ -1,9 +1,12 @@
 const express = require("express");
 const Game = require("../models/Game");
+const Field = require("../models/Field");
 const gamesRoutes = express.Router();
-
+let imgField;
 gamesRoutes.get("/", (req, res, next) => {
-  Game.find()
+  //------On trouve le match-------//
+  Game.find() // [ {field: '12341234234'}, {} ]
+  .populate('field')
     .then((AllGamesFromDb) => {
       console.log("AllGamesFromDb", AllGamesFromDb);
       res.json(AllGamesFromDb);
@@ -15,6 +18,19 @@ gamesRoutes.post("/add", (req, res, next) => {
   const organisator = req.session.currentUser;
   const { name, players, numPlayers, levelGame, field, mood, date, typeGame } =
     req.body;
+
+  
+  // const imgField = Field.findOne({ _id: field })
+  //   .populate("field")
+  //   .then((fieldObj) => {
+
+  //     let imgField = { fieldObj };
+  //     // console.log("imgField", imgField);
+  //     res.json({ fieldObj });
+  //   });
+
+  //   console.log("imgField", imgField);
+
   const data = {
     name,
     players,
@@ -24,8 +40,9 @@ gamesRoutes.post("/add", (req, res, next) => {
     mood,
     date,
     typeGame,
+    imgField,
   };
-  // console.log("data is : ", data);
+  console.log("data game : ", data);
   console.log("organisator is : ", req.session.currentUser);
 
   // if (!name || !levelGame || !field || !mood) {
@@ -34,7 +51,7 @@ gamesRoutes.post("/add", (req, res, next) => {
   // }
 
   const aNewGame = new Game({
-    organisator: req.session.currentUser,
+    organisator: req.session.currentUser._id,
     name: name,
     players: players,
     numPlayers: numPlayers,
@@ -43,6 +60,7 @@ gamesRoutes.post("/add", (req, res, next) => {
     date: date,
     typeGame: typeGame,
     field: field,
+    // img: imgField,
     //image, -------> Mettre image du terrain.
   });
 

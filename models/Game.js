@@ -1,47 +1,50 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const gameSchema = new Schema(
-  {
-    name: { type: String },
+const gameSchema = new Schema({
+  name: { type: String },
 
-    organisator: {
-      type: Schema.Types.ObjectId, ref: 'User',
+  organisator: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+
+  players: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
+  ],
 
-    players: [{
-      type: Schema.Types.ObjectId, ref: 'User'
-    }],
+  numPlayers: {
+    type: Number,
+  },
 
-    numPlayers: {
-      type: Number,
-    },
+  levelGame: {
+    type: String,
+    enum: ["Débutant", "Amateur", "Confirmé", "ProA", "ProB"],
+  },
 
-    levelGame: {
-      type: String,
-      enum: ["Débutant", "Amateur", "Confirmé", "ProA", "ProB"],
-    },
+  field: {
+    type: Schema.Types.ObjectId,
+    ref: "Field",
+  },
 
-    field: {
-      type: String,
-    },
+  mood: {
+    type: String,
+    enum: ["Fun", "Competitive"],
+  },
 
-    mood: {
-      type: String,
-      enum: ["Fun", "Competitive"],
-    },
+  date: { type: Date },
 
-    date: { type: Date },
+  typeGame: {
+    type: String,
+    enum: ["1x1", "2x2", "3x3", "4x4", "5x5"],
+  },
+  
+});
 
-    typeGame: {
-      type:String,
-      enum: ["1x1","2x2","3x3","4x4","5x5"]
-    },
-
-  }
-)
-
-const Game = mongoose.model('Game', gameSchema);
+const Game = mongoose.model("Game", gameSchema);
 module.exports = Game;
 
 // Model Game  :

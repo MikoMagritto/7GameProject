@@ -77,7 +77,7 @@ export default class CreateGame extends Component {
           <label> Field </label>
           <select name="field" onChange={(e) => this.handleChange(e)}>
             {this.state.fields.map((field) => {
-              return <option value={field.name}>{field.name}</option>;
+              return <option value={field._id}>{field.name}</option>;
             })}
           </select>
 
