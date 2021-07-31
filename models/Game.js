@@ -16,6 +16,8 @@ const gameSchema = new Schema({
     },
   ],
 
+  hour: { type: String },
+
   numPlayers: {
     type: Number,
   },
@@ -41,7 +43,6 @@ const gameSchema = new Schema({
     type: String,
     enum: ["1x1", "2x2", "3x3", "4x4", "5x5"],
   },
-  
 });
 
 const Game = mongoose.model("Game", gameSchema);

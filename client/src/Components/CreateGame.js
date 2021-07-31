@@ -4,7 +4,7 @@ import axios from "axios";
 export default class CreateGame extends Component {
   state = {
     fields: [],
-    field:"",
+    field: "",
     name: "",
     date: "",
     hour: "",
@@ -25,28 +25,32 @@ export default class CreateGame extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const field = this.state.field;
-    const name = this.state.name;
-    const date = this.state.date;
-    const hour = this.state.hour;
-    const mood = this.state.mood;
-    const numPlayers = this.state.numPlayers;
-    const level = this.state.levelGame;
-    const typeGame = this.state.typeGame;
+    // const field = this.state.field;
+    // const name = this.state.name;
+    // const date = this.state.date;
+    // const hour = this.state.hour;
+    // const mood = this.state.mood;
+    // const numPlayers = this.state.numPlayers;
+    // const level = this.state.levelGame;
+    // const typeGame = this.state.typeGame;
 
     axios
-      .post("http://localhost:5000/games/add", {
-        field: this.state.field,
-        name: this.state.name,
-        date: this.state.date,
-        hour: this.state.hour,
-        mood: this.state.mood,
-        numPlayers: this.state.numPlayers,
-        levelGame: this.state.levelGame,
-        typeGame: this.state.typeGame,
-      })
+      .post(
+        "http://localhost:5000/games/add",
+        {
+          field: this.state.field,
+          name: this.state.name,
+          date: this.state.date,
+          hour: this.state.hour,
+          mood: this.state.mood,
+          numPlayers: this.state.numPlayers,
+          levelGame: this.state.levelGame,
+          typeGame: this.state.typeGame,
+        },
+        { withCredentials: true }
+      )
       .then((response) => {
-        // console.log(response);
+        console.log(response.data);
         this.setState({
           field: "",
           name: "",
@@ -58,9 +62,8 @@ export default class CreateGame extends Component {
           typeGame: "",
         });
         // this.props.updateUser(response);
-        // this.props.history.push('/auth');
       })
-      .catch((err) => this.setState({ error: err.response.data.message }));
+      .catch((err) => console.log(err));
   };
   handleChange = (event) => {
     const { name, value } = event.target;

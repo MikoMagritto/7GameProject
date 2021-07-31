@@ -8,13 +8,13 @@ module.exports = app => {
       secret: "some secret",
       resave: true,
       saveUninitialized: true,
-      cookie: {
-        maxAge: 600000 // 60 * 1000 ms === 1 min
-      },
+      // cookie: {
+      //   maxAge: 600000 // 60 * 1000 ms === 1 min
+      // },
       store: new MongoStore({
         mongooseConnection: mongoose.connection,
         // ttl => time to live
-        ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
+       // ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
       })
     })
   );

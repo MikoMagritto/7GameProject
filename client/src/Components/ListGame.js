@@ -46,7 +46,7 @@ export default class ListGame extends Component {
                    <span>Jour du match: {game.date} </span>
                 </div>
                 <div>
-                   <span>Terrain : {game.field} </span>
+                   <span>Terrain : {game.field.name} </span>
                 </div>
                 <div>
                    <span>Niveau de jeu : {game.levelGame} </span>
