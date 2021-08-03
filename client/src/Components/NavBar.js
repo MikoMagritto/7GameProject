@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../Components/NavBar.css";
+import "./NavBar.css";
 
 const NavBar = (props) => {
     return (
@@ -29,13 +29,13 @@ const NavBar = (props) => {
         ) : (
           <ul>
             <li>
-              <Link to="/signup"> S'inscrire</Link>
+              <Link to="/signup"> Sign Up</Link>
             </li>
             <li>
-              <Link to="/login"> Se connecter </Link>
+              <Link to="/login"> Login </Link>
             </li>
             <li>
-              <Link to="/">Notre concept</Link>
+              <Link to="/">Our Concept</Link>
             </li>
             <li>
               <Link to="/">Home</Link>
