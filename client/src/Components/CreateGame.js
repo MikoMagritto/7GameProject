@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "../Components/CreateGame.css";
 
 export default class CreateGame extends Component {
   state = {
@@ -72,7 +73,7 @@ export default class CreateGame extends Component {
   }
   render() {
     return (
-      <div>
+      <div class="item">
         <form onSubmit={this.handleFormSubmit}>
           <label> Field </label>
           <select name="field" onChange={(e) => this.handleChange(e)}>
