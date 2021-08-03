@@ -8,8 +8,9 @@ import NavBar from "./Components/NavBar";
 import Profile from "./Components/auth/Profile";
 import Home from "./Components/auth/Home";
 import Concept from "./Components/auth/Concept";
-import CreateGame from "./Components/CreateGame"
+import CreateGame from "./Components/CreateGame";
 import ListGame from "./Components/ListGame";
+import DetailGame from "./Components/DetailGame";
 
 class App extends Component {
   state = {
@@ -73,14 +74,20 @@ class App extends Component {
             path="/games/add"
             render={() => <CreateGame field={this.state.field} />}
           /> */}
+          <Route exact path="/games/add" component={CreateGame} />
           <Route
             exact
-            path="/games/add"
-            component={CreateGame}
+            path="/games"
+            render={(props) => (
+              <ListGame updateUser={this.addTheUser} user={this.state.user} />
+            )}
           />
-          <Route exact path="/games" render={(props)=> (
-            <ListGame updateUser={this.addTheUser} user={this.state.user}/>
-          )} />
+
+          <Route
+            exact
+            path="/games/:id"
+            render={(props) => <DetailGame {...props} userInSession={this.state.user}  />}
+          />
 
           <Route exact path="/" component={Home} />
           <Route exact path="/concept" component={Concept} />

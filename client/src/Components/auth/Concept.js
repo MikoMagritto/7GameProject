@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import {Link} from 'react-router-dom';
+import "./Concept.css";
 
 export default class Concept extends React.Component {
   render() {
   return (
-  <div>
+  <div className = "concept">
 
   <h1>Concept</h1>
   <p>  
