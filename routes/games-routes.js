@@ -148,7 +148,7 @@ gamesRoutes.put("/edit/:id", (req, res, next) => {
     })
     .catch(next);
 });
-
+//--------ROUTES ADD A PLAYER TO THE GAME --------------
 gamesRoutes.put("/:id/listPlayer", (req, res, next) => {
   if (!req.session.currentUser) {
     res.status(401).json({ message: "You need to be logged in!" });
@@ -158,13 +158,14 @@ gamesRoutes.put("/:id/listPlayer", (req, res, next) => {
   console.log("IdUser", req.session.currentUser._id);
 
   //1.il faut Game.findById pour obtenir dans le game en 1er paramètre de la fonction de callback du .then(game => {})
-  Game.findById({ _id: req.params.id }).then((game) => {
-    game.players.push(req.session.currentUser._id);
-    game.save().then((updateGame) => {
-      res.status(200).json(updateGame);
-    });
-  })
-  .catch(err=>console.log(err));
+  Game.findById({ _id: req.params.id })
+    .then((game) => {
+      game.players.push(req.session.currentUser._id);
+      game.save().then((updateGame) => {
+        res.status(200).json(updateGame);
+      });
+    })
+    .catch((err) => console.log(err));
 
   //2. puis game.players.push() l'_id du user connecté
 
@@ -180,6 +181,30 @@ gamesRoutes.put("/:id/listPlayer", (req, res, next) => {
   //     res.status(200).json(game);
   //   })
   //   .catch((err) => console.log(err));
+});
+//--------ROUTES OUT THE PLAYER TO THE GAME --------------
+gamesRoutes.put("/:id/outPlayer", (req, res, next) => {
+  if (!req.session.currentUser) {
+    res.status(401).json({ message: "You need to be logged in!" });
+    return;
+  }
+  // const players = req.body.players;
+  console.log("IdUser", req.session.currentUser._id);
+
+  //1.il faut Game.findById pour obtenir dans le game en 1er paramètre de la fonction de callback du .then(game => {})
+  Game.findById({ _id: req.params.id })
+    .then((game) => {
+      var indexUser = game.players.indexOf(req.session.currentUser._id);
+      if (indexUser > -1) {
+        game.players.splice(indexUser, 1);
+        // return game.players;
+      }
+
+      game.save().then((updateGame) => {
+        res.status(200).json(updateGame);
+      });
+    })
+    .catch((err) => console.log(err));
 });
 
 gamesRoutes.get("/delete/:id", (req, res) => {

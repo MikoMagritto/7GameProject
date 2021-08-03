@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 export default class DetailGame extends Component {
   state = {
@@ -25,6 +25,22 @@ export default class DetailGame extends Component {
       .catch((err) => console.log(err));
   };
 
+  deletePlayer = (e) => {
+    e.preventDefault();
+    const params = this.props.match.params;
+    const player = e.target.value;
+
+    axios
+      .put(`http://localhost:5000/games/${params.id}/outPlayer`, player, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        this.setState({ game: response.data });
+        this.props.history.push("/games");
+      })
+      .catch((err) => console.log(err));
+  };
+
   addPlayer = (e) => {
     e.preventDefault();
     const params = this.props.match.params;
@@ -38,13 +54,23 @@ export default class DetailGame extends Component {
         withCredentials: true,
       })
       .then((response) => {
-        
         this.setState({ game: response.data });
+        this.props.history.push("/games");
       })
       .catch((err) => console.log(err));
   };
 
   render() {
+    // console.log(
+    //   "findObject",
+    //   findObject(this.state.game.players, this.props.userInSession)
+    // );
+    // console.log(
+    //   "test button : ",
+    //   this.state.game.players.includes(this.props.userInSession)
+    // );
+    console.log("test arrPlayers", this.state.game.players);
+    console.log("test userObj", this.props.userInSession);
     if (!this.state.game) {
       return "loading";
     }
@@ -102,15 +128,38 @@ export default class DetailGame extends Component {
                 {this.state.game.players.map((player) => player.username)}
               </span>
             </div>
-            <button
-              onClick={(e) => this.addPlayer(e)}
-              value={this.props.userInSession._id}
-            >
-              Rejoindre
-            </button>
-            {/* <form onSubmit={this.addPlayer}>
-       <input type="submit" value="Rejoindre" name="players" />
-       </form> */}
+
+            {this.state.game.players.filter(
+              (el) => el._id === this.props.userInSession._id
+            ).length > 0 ? (
+              <button
+                onClick={(e) => this.deletePlayer(e)}
+                value={this.props.userInSession._id}
+              >
+                Se désinscrire
+              </button>
+            ) : (
+              <button
+                onClick={(e) => this.addPlayer(e)}
+                value={this.props.userInSession._id}
+              >
+                Rejoindre
+              </button>
+            )}
+            {/* {this.state.game.players.includes(this.props.userInSession) ? (
+               <button
+               onClick={(e) => this.deletePlayer(e)}
+               value={this.props.userInSession._id}
+             >
+               Se désinscrire
+             </button> 
+            ) : ( <button
+                onClick={(e) => this.addPlayer(e)}
+                value={this.props.userInSession._id}
+              >
+                Rejoindre
+              </button>)} */}
+
           </div>
         ) : (
           <div>Tu dois te connecter pour rejoindre ce match</div>
