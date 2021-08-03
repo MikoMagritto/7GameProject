@@ -11,7 +11,7 @@ export default class ListGame extends Component {
     axios
       .get("http://localhost:5000/games")
       .then((response) => {
-        console.log("games :", response);
+        // console.log("games :", response);
         this.setState({ games: response.data });
       })
       .catch((err) => console.log(err));
@@ -28,7 +28,8 @@ export default class ListGame extends Component {
             return (
               <li key={game._id}>
                 <div>
-                   <span>Image du Terrain</span>
+                  <img src={game.field.img}/>
+                   {/* <span>Image du Terrain</span> */}
                 </div>
                 <h1>
                   <Link to={`/games/${game._id}`}>{game.name}</Link>
