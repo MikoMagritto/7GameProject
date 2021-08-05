@@ -1,25 +1,25 @@
 require('dotenv').config();
 
-const bodyParser   = require('body-parser');
+const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const express      = require('express');
-const favicon      = require('serve-favicon');
-const hbs          = require('hbs');
-const mongoose     = require('mongoose');
-const logger       = require('morgan');
-const path         = require('path');
-const session      = require('express-session');
+const express = require('express');
+const favicon = require('serve-favicon');
+const hbs = require('hbs');
+const mongoose = require('mongoose');
+const logger = require('morgan');
+const path = require('path');
+const session = require('express-session');
 
 
 
-mongoose.connect('mongodb://localhost/sevengameproject',{useNewUrlParser: true})
-//   mongoose .connect('mongodb+srv://ChloeT:AxC36oVEkWZF775W@cluster0.jwh3k.mongodb.net/sevengameproject', {useNewUrlParser: true})
-  .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
-  })
-  .catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+
+mongoose.connect('mongodb+srv://ChloeT:AxC36oVEkWZF775W@cluster0.jwh3k.mongodb.net/sevengameproject', { useNewUrlParser: true })
+	.then(x => {
+		console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+	})
+	.catch(err => {
+		console.error('Error connecting to mongo', err)
+	});
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
@@ -62,8 +62,8 @@ const index = require('./routes/index');
 app.use('/', index);
 
 app.use("/auth", require("./routes/auth-routes"));
-app.use("/games",require("./routes/games-routes"));
-app.use("/fields",require("./routes/field-routes"));
+app.use("/games", require("./routes/games-routes"));
+app.use("/fields", require("./routes/field-routes"));
 
 
 module.exports = app;
