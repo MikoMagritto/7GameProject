@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { signup } from './auth-service';
 import { uploadFile } from './auth-service';
 import { saveNewThing } from './auth-service';
+import './Signup.css'
 
 import { Link } from 'react-router-dom';
 
@@ -49,7 +50,7 @@ export default class Signup extends React.Component {
   }
   fileChange = (e) => {
     console.log('The file to be uploaded is: ', e.target.files[0]);
-    
+
 
     const uploadData = new FormData();
     // imageUrl => this name has to be the same as in the model since we pass
@@ -70,7 +71,9 @@ export default class Signup extends React.Component {
 
   render() {
     return (
-      <div>
+      
+      <div className="form">
+     
         <h1>Sign up</h1>
         <form onSubmit={this.handleFormSubmit}>
           {this.state.error && (
@@ -79,59 +82,56 @@ export default class Signup extends React.Component {
             </p>)}
           <p>
             <label>
-              <em>Username</em>
-              <input type="text" name="username" value={this.state.username} onChange={(e) => this.handleChange(e)} />
-            </label>
+              <em>Username</em>   </label>
+            <input type="text" name="username" value={this.state.username} onChange={(e) => this.handleChange(e)} />
+
           </p>
           <p>
             <label>
-              <em>Password</em>
-              <input type="password" name="password" value={this.state.password} onChange={(e) => this.handleChange(e)} />
-            </label>
+              <em>Password</em> </label>
+            <input type="password" name="password" value={this.state.password} onChange={(e) => this.handleChange(e)} />
+
           </p>
           <p>
             <label>
-              <em>Email</em>
-              <input type="text" name="email" value={this.state.email} onChange={(e) => this.handleChange(e)} />
-            </label>
+              <em>Email</em>      </label>
+            <input type="text" name="email" value={this.state.email} onChange={(e) => this.handleChange(e)} />
+
           </p>
           <p>
             <label>
-              <em>Height</em>
-              <input type="number" name="height" value={this.state.height} onChange={(e) => this.handleChange(e)} />
-            </label>
+              <em>Height</em>     </label>
+            <input type="number" name="height" value={this.state.height} onChange={(e) => this.handleChange(e)} />
           </p>
 
           <p>
             <label>
-              <em>Age</em>
-              <input type="number" name="age" value={this.state.age} onChange={(e) => this.handleChange(e)} />
-            </label>
+              <em>Age</em>  </label>
+            <input type="number" name="age" value={this.state.age} onChange={(e) => this.handleChange(e)} />
           </p>
 
           <p>
             <label>
-              <em>Level</em>
-              <select name="level" value={this.state.level} onChange={(e) => this.handleChange(e)}>
-                <option value="Débutant">Débutant</option>
-                <option value="Amateur">Amateur</option>
-                <option value="Confirmé">Confirmé</option>
-                <option value="ProA">ProA</option>
-                <option value="ProB">ProB</option>
-              </select>
-
-            </label>
+              <em>Level</em>      </label>
+            <select name="level" value={this.state.level} onChange={(e) => this.handleChange(e)}>
+              <option value="Débutant">Débutant</option>
+              <option value="Amateur">Amateur</option>
+              <option value="Confirmé">Confirmé</option>
+              <option value="ProA">ProA</option>
+              <option value="ProB">ProB</option>
+            </select>
           </p>
 
           <p>
             <label>
-              <em>Avatar</em>
-              <input type="file" onChange={(e) => this.fileChange(e)} />
-            </label>
+              <em>Avatar</em>     </label>
+            <input type="file" onChange={(e) => this.fileChange(e)} />
           </p>
           <button>Submit</button>
         </form>
       </div>
+    
+    
     )
   }
 }
