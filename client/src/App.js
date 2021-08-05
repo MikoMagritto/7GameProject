@@ -6,11 +6,16 @@ import { Switch, Route } from "react-router";
 import LoginUser from "./Components/auth/Login";
 import NavBar from "./Components/NavBar";
 import Profile from "./Components/auth/Profile";
-import Home from "./Components/auth/Home";
-import Concept from "./Components/auth/Concept";
+import Home from "./Components/Home";
+import Concept from "./Components/Concept";
 import CreateGame from "./Components/CreateGame";
 import ListGame from "./Components/ListGame";
 import DetailGame from "./Components/DetailGame";
+import Solution from "./Components/Solution";
+import Team from "./Components/Team";
+import Contact from "./Components/Contact";
+
+
 
 class App extends Component {
   state = {
@@ -89,9 +94,16 @@ class App extends Component {
             render={(props) => <DetailGame {...props} userInSession={this.state.user}  />}
           />
 
-          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/concept" component={Concept} />
+          <Route exact path="/solution" component={Solution} />
+          <Route exact path="/team" component={Team} />
+          <Route exact path="/contact" component={Contact} />
         </Switch>
+
+
+
+
       </div>
     );
   }

@@ -8,16 +8,16 @@ const NavBar = (props) => {
         {props.userInSession ? (
           <ul>
             <li>
-              <Link to="/">Notre concept</Link>
+              <Link to="/concept">Notre concept</Link>
             </li>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/home">Home</Link>
             </li>
             <li>
-              <Link to="/">Our Solution</Link>
+              <Link to="/solution">Our Solution</Link>
             </li>
             <li>
-              <Link to="/">Contact</Link>
+              <Link to="/contact">Contact</Link>
             </li>
             <li>
               <Link to="/games">Find a game</Link>
@@ -35,16 +35,16 @@ const NavBar = (props) => {
               <Link to="/login"> Login </Link>
             </li>
             <li>
-              <Link to="/">Our Concept</Link>
+              <Link to="/concept">Our Concept</Link>
             </li>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/home">Home</Link>
             </li>
             <li>
-              <Link to="/">Our Solution</Link>
+              <Link to="/solution">Our Solution</Link>
             </li>
             <li>
-              <Link to="/">Contact</Link>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
         )}

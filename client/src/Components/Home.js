@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import { signup } from './auth-service';
-import { login } from './auth-service';
+import { signup } from './auth/auth-service';
+import { login } from './auth/auth-service';
 import "./Home.css";
 
 
