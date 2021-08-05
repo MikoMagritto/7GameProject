@@ -25,21 +25,16 @@ class Login extends React.Component {
   render() {
     return (
       <div className='home'>
-        <div class="bg-image"></div>
-        <div class="bg-text">
-          <h1>Seven Game</h1>
-          <p>Join the fame !</p>
-          <form onSubmit={this.handleSubmit}>
-            <label> Username </label>
-            <input type="text" name="username" value={this.state.username} onChange={(e) => this.handleChange(e)} />
-            <label> Password </label>
-            <input type="password" name="password" value={this.state.password} onChange={(e) => this.handleChange(e)} />
-            <button>Login</button>
-            <p>Don't have an account !</p>
-            <Link to="/signup"><button className="btn">Sign up</button></Link>
-          </form>
+        <div className='container'>
+          <div className="text">
+            <h1 className="orange">FIND BASKETBALL COURT</h1>
+            <h1>& GET INTO THE GAME</h1>
+            <h2 className="orange">JOIN OUR COMMUNITY</h2>
+          </div>
+          <a href="/login">GET STARTED</a>
         </div>
       </div>
+
     )
   }
 }

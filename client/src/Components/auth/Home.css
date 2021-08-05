@@ -1,23 +1,43 @@
 .home {
-  height: 100%;
-  margin: 0;
-}
-
-.bg-image {
-  background-image: url('https://images.unsplash.com/photo-1557331086-8675a6510b3f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
-  height: 112%;
+  position: relative;
+  height: 647px;
+  background-image: url('https://res.cloudinary.com/dp1lq7mea/image/upload/v1628183286/dorian-mongel-lFhyR3GVOXE-unsplash_kdw9u1.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.bg-text {
+.home .container{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 80%;
-  padding: 20px;
+  left: 5%;
+  bottom: 15%;
+}
+
+.home .container .text {
+  width: 420px;
+  height: 236px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 30px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 200%;
+}
+
+.home .container .text h1 {
+  color: white
+}
+
+.home .container .text .orange {
+  color: #FEA146;
+}
+
+.home .container a {
+  position: absolute;
+  text-decoration: none;
+  color: white;
   text-align: center;
+  align-items: center;
+  padding: 15px 45px;
+  background-color: black;
 }
