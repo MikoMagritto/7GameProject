@@ -11,6 +11,7 @@ import Concept from "./Components/auth/Concept";
 import CreateGame from "./Components/CreateGame";
 import ListGame from "./Components/ListGame";
 import DetailGame from "./Components/DetailGame";
+import EditProfile from "./Components/auth/EditProfile";
 
 class App extends Component {
   state = {
@@ -18,8 +19,8 @@ class App extends Component {
     field: [],
   };
 
-  addTheUser = (response) => {
-    console.log("user logged is :", response);
+  fetchTheUser = (response) => {
+    // console.log("user logged is :", response);
     this.setState({ user: response });
     if (this.state.user === null) {
       loggedin()
@@ -38,7 +39,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.addTheUser();
+    this.fetchTheUser();
   }
 
   render() {
@@ -50,14 +51,14 @@ class App extends Component {
           <Route
             exact
             path="/signup"
-            render={(props) => <Signup addUser={this.addTheUser} />}
+            render={(props) => <Signup addUser={this.updateUser} />}
           />
 
           <Route
             exact
             path="/login"
             render={(props) => (
-              <LoginUser updateUser={this.addTheUser} history={props.history} />
+              <LoginUser updateUser={this.updateUser} history={props.history} />
             )}
           />
 
@@ -65,28 +66,42 @@ class App extends Component {
             exact
             path="/auth"
             render={(props) => (
-              <Profile updateUser={this.addTheUser} user={this.state.user} />
+              <Profile
+                updateUser={this.updateUser}
+                {...props}
+                userInSession={this.state.user}
+              />
             )}
           />
 
-          {/* <Route
+          <Route
             exact
-            path="/games/add"
-            render={() => <CreateGame field={this.state.field} />}
-          /> */}
+            path="/auth/edit"
+            render={(props) => (
+              <EditProfile
+                updateUser={this.updateUser}
+                {...props}
+                userInSession={this.state.user}
+              />
+            )}
+          />
+
+      
           <Route exact path="/games/add" component={CreateGame} />
           <Route
             exact
             path="/games"
             render={(props) => (
-              <ListGame updateUser={this.addTheUser} user={this.state.user} />
+              <ListGame updateUser={this.updateUser} user={this.state.user} />
             )}
           />
 
           <Route
             exact
             path="/games/:id"
-            render={(props) => <DetailGame {...props} userInSession={this.state.user}  />}
+            render={(props) => (
+              <DetailGame {...props} userInSession={this.state.user} />
+            )}
           />
 
           <Route exact path="/" component={Home} />

@@ -108,19 +108,17 @@ authRoutes.get("/loggedin", (req, res, next) => {
   res.status(403).json({ message: "Unauthorized" });
 });
 //EDIT
-authRoutes.put("/edit/:id", fileUpload.single("avatar"), (req, res, next) => {
+authRoutes.put("/edit/:id", (req, res, next) => {
   //console.log("editRoad")
   const { username, email, age, height, level } = req.body;
   const data = { username, email, age, height, level };
-  const id = req.session.currentUser._id;
-  console.log(id);
+  const id = req.params.id
+  console.log("id: ",id);
   if (!req.session.currentUser) {
     res.status(401).json({ message: "You need to be logged in!" });
     return;
   }
-  if (req.file) {
-    data.avatar = req.file.path;
-  }
+  
   User.findByIdAndUpdate({ _id: id }, data, { new: true })
     .then((newUser) => {
       console.log("new user", newUser);

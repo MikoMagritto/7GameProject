@@ -19,7 +19,7 @@ export default class DetailGame extends Component {
         withCredentials: true,
       })
       .then((response) => {
-        console.log("game :", response.data);
+        // console.log("game :", response.data);
         this.setState({ game: response.data });
       })
       .catch((err) => console.log(err));
@@ -45,7 +45,7 @@ export default class DetailGame extends Component {
     e.preventDefault();
     const params = this.props.match.params;
 
-    console.log("onClickAddPlayer", e.target.value);
+    // console.log("onClickAddPlayer", e.target.value);
 
     const player = e.target.value;
 
@@ -61,16 +61,7 @@ export default class DetailGame extends Component {
   };
 
   render() {
-    // console.log(
-    //   "findObject",
-    //   findObject(this.state.game.players, this.props.userInSession)
-    // );
-    // console.log(
-    //   "test button : ",
-    //   this.state.game.players.includes(this.props.userInSession)
-    // );
-    console.log("test arrPlayers", this.state.game.players);
-    console.log("test userObj", this.props.userInSession);
+   
     if (!this.state.game) {
       return "loading";
     }

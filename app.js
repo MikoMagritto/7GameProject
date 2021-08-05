@@ -12,8 +12,8 @@ const session      = require('express-session');
 
 
 
-// mongoose.connect('mongodb://localhost/sevengameproject',{useNewUrlParser: true})
-  mongoose .connect('mongodb+srv://ChloeT:AxC36oVEkWZF775W@cluster0.jwh3k.mongodb.net/sevengameproject', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost/sevengameproject',{useNewUrlParser: true})
+//   mongoose .connect('mongodb+srv://ChloeT:AxC36oVEkWZF775W@cluster0.jwh3k.mongodb.net/sevengameproject', {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -39,14 +39,6 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-//Session settings
-app.use(
-	session({
-		secret: "some secret goes here",
-		resave: true,
-		saveUninitialized: true,
-	})
-);
 
 require('./configs/session.config')(app);
 
