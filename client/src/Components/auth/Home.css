@@ -7,13 +7,13 @@
   background-size: cover;
 }
 
-.home .container{
+.home .section1{
   position: absolute;
   left: 5%;
   bottom: 15%;
 }
 
-.home .container .text {
+.home .section1 .text {
   width: 420px;
   height: 236px;
   background: rgba(0, 0, 0, 0.4);
@@ -21,18 +21,18 @@
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  line-height: 200%;
+  line-height: 170%;
 }
 
-.home .container .text h1 {
+.home .section1 .text h1 {
   color: white
 }
 
-.home .container .text .orange {
+.home .section1 .text .orange {
   color: #FEA146;
 }
 
-.home .container a {
+.home .section1 a {
   position: absolute;
   text-decoration: none;
   color: white;

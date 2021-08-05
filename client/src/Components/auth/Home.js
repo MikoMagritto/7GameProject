@@ -25,9 +25,10 @@ class Login extends React.Component {
   render() {
     return (
       <div className='home'>
-        <div className='container'>
+        <div className='section1'>
           <div className="text">
-            <h1 className="orange">FIND BASKETBALL COURT</h1>
+            <h1 className="orange">FIND</h1>
+            <h1 className="orange">BASKETBALL COURT</h1>
             <h1>& GET INTO THE GAME</h1>
             <h2 className="orange">JOIN OUR COMMUNITY</h2>
           </div>
