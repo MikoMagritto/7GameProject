@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+.solution {
+  background-color: black;
+  color : white;
+  font-family: sans-serif;
+  overflow: hidden;
+  margin: 0px;
+  background-repeat: -x;
+ height: 100%;
+ min-height: 100%;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ top: 0;
+
+
+}
+.art {
+
+  background-color: black;
+  color : white;
+  display : flex;
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 10px;
+  text-align: center;
+  border-spacing: 50px;
+
+ 
+}
+
+.art1 {
+  margin : auto;
+ 
+
+ 
+}
+
+.art2 {
+
+  margin : auto;
+ 
+
+ 
+}
+
+.art3 {
+  margin : auto;
+
+}
+

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { login } from "./auth-service";
 import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
+import "./Login.css";
+
 
 export default class LoginUser extends Component {
   state = {
@@ -66,7 +68,9 @@ export default class LoginUser extends Component {
 
   render() {
     return (
-      <div>
+      <div class="back-image">
+      <div className = "login">
+    
         <form onSubmit={this.handleSubmit}>
           {this.state.error && <p className="error">{this.state.error}</p>}
 
@@ -95,6 +99,7 @@ export default class LoginUser extends Component {
           </p>
           <button>Se connecter</button>
         </form>
+      </div>
       </div>
     );
   }
