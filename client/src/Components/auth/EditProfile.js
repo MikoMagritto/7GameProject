@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { uploadFile } from "./auth-service";
+import {Redirect} from "react-router-dom";
 
 export default class EditProfile extends Component {
   state = {
@@ -32,7 +33,7 @@ export default class EditProfile extends Component {
       )
       .then((response) => {
         console.log("response", response);
-        this.props.updateUser(response);
+        this.props.updateUser(response.data);
         this.props.history.push("/auth");
       });
   };

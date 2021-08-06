@@ -6,10 +6,15 @@ import { Link } from "react-router-dom";
 export default class Profile extends Component {
   state = {
     games: [],
+    gamesOrga:[]
   };
   componentDidMount() {
     this.listPlayerGame();
+    this.listOrganisatorGame();
   }
+  // componentDidUpdate(){
+  //   this.props.updateUser();
+  // }
   logout = (event) => {
     axios.post("http://localhost:5000/auth/logout", {}).then((response) => {
       this.props.updateUser(false);
@@ -21,6 +26,14 @@ export default class Profile extends Component {
       let copyGames = [...response.data];
       copyGames.filter((e) => e.players.includes(this.props.userInSession._id));
       this.setState({ games: copyGames });
+    });
+  };
+
+  listOrganisatorGame = () => {
+    axios.get("http://localhost:5000/games").then((response) => {
+      let copyGames = [...response.data];
+      copyGames.filter((e) => e.organisator === this.props.userInSession.id);
+      this.setState({ gamesOrga: copyGames });
     });
   };
 
@@ -71,6 +84,17 @@ export default class Profile extends Component {
         </div>
         <div>
           {this.state.games.map((game) => {
+            return (
+              <div>
+                <h2>{game.name}</h2>
+                <div>{game.date}</div>
+                <div>{game.hour}</div>
+                <div>{game.field.name}</div>
+                <div>{game.organisator.username}</div>
+              </div>
+            );
+          })}
+            {this.state.gamesOrga.map((game) => {
             return (
               <div>
                 <h2>{game.name}</h2>

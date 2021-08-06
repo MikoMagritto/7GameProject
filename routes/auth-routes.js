@@ -5,9 +5,9 @@ const fileUpload = require("../configs/cloudinary.config");
 // require the user model !!!!
 const User = require("../models/User");
 
-authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
+authRoutes.post("/signup", (req, res, next) => {
   const { username, password, email, age, height, level } = req.body;
-  const avatar = req.file.path;
+  
 
   let role;
   if (email === "admin@admin.fr") {
@@ -43,7 +43,6 @@ authRoutes.post("/signup",fileUpload.single("avatar"), (req, res, next) => {
         age: age,
         height: height,
         level: level,
-        avatar: avatar,
         role: role,
       });
 
