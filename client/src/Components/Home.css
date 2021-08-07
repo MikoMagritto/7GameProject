@@ -91,3 +91,23 @@
   font-size: 22px;
   line-height: 40px;
 }
+
+.section4 {
+background: #9F9D9D;
+position: absolute;
+width: 413px;
+height: 114px;
+left: 80px;
+top: 1803px;
+
+font-family: Open Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 19px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FABB76;
+}
