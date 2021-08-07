@@ -8,9 +8,9 @@ module.exports = app => {
       secret: "some secret",
       resave: true,
       saveUninitialized: false,
-      cookie: {
-        maxAge: 6000000 // 60 * 1000 ms === 1 min
-      },
+      // cookie: {
+        // maxAge: 6000000 // 60 * 1000 ms === 1 min
+      //},
       store: new MongoStore({
         mongooseConnection: mongoose.connection,
         // ttl => time to live
