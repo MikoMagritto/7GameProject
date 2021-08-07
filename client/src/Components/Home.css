@@ -1,5 +1,5 @@
 .home {
-  background-color :#FABB76;
+  background-color: #FABB76;
 }
 
 .section1 {
@@ -57,7 +57,7 @@
 }
 
 .section2 div {
-  padding: 20px 100px;
+  padding: 40px 100px;
 }
 
 .section2 h1 {
@@ -70,7 +70,6 @@
 .section2 h2 {
   height: 75px;
   font-weight: 500;
-
 }
 
 .section3 {
@@ -78,11 +77,11 @@
   background-image: url('https://res.cloudinary.com/dp1lq7mea/image/upload/v1628191311/oleksii-s-O2kqxbix4Mw-unsplash_zady7o.jpg');
   background-position: right center;
   background-repeat: no-repeat;
-  background-size:45%;
+  background-size: 45%;
 }
 
 .section3 .container {
-  color : white;
+  color: white;
   padding: 0 80px;
   width: 40%;
 }
@@ -93,21 +92,106 @@
 }
 
 .section4 {
-background: #9F9D9D;
-position: absolute;
-width: 413px;
-height: 114px;
-left: 80px;
-top: 1803px;
+  color: white;
+  background-color: #292222;
+  text-align: center;
+  padding: 50px;
+}
 
-font-family: Open Sans;
-font-style: normal;
-font-weight: bold;
-font-size: 14px;
-line-height: 19px;
-display: flex;
-align-items: center;
-text-align: center;
+.section4 h1 {
+  line-height: 10px;
+  font-size: 30px;
+  font-weight: 650;
+  letter-spacing: .3rem;
+  padding-bottom: 40px;
+}
 
-color: #FABB76;
+.section4 .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.section4 div {
+  padding: 0 20px;
+}
+
+.section4 h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.section4 h3 {
+  font-weight: 400;
+  font-size: 20px;
+
+}
+
+.section4 p {
+  font-weight: 200;
+  font-size: 15px;
+}
+
+.section4 .container img {
+  height:100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section5 {
+  color: black;
+  text-align: center;
+  padding: 50px;
+}
+
+.section5 h1 {
+  line-height: 10px;
+  font-size: 30px;
+  font-weight: 650;
+  letter-spacing: .3rem;
+  padding-bottom: 40px;
+}
+
+.section5 .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.section5 div {
+  padding: 0 20px;
+}
+
+.section5 h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.section5 h3 {
+  font-weight: 400;
+  font-size: 20px;
+
+}
+
+.section5 p {
+  font-weight: 200;
+  font-size: 15px;
+}
+
+.section5 .container img {
+  height:200px;
+  border-radius:100%; 
+
 }

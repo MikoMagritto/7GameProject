@@ -8,13 +8,13 @@ const NavBar = (props) => {
         {props.userInSession ? (
           <ul>
             <li>
-              <Link to="/concept">Notre concept</Link>
+              <Link to="/">Our concept</Link>
             </li>
             <li>
               <Link to="/home">Home</Link>
             </li>
             <li>
-              <Link to="/auth">Mon Profil</Link>
+              <Link to="/auth">My Profile</Link>
             </li>
             <li>
               <Link to="/contact">Contact</Link>
@@ -35,7 +35,7 @@ const NavBar = (props) => {
               <Link to="/login"> Login </Link>
             </li>
             <li>
-              <Link to="/concept">Our Concept</Link>
+              <Link to="/">Our Solution</Link>
             </li>
             <li>
               <Link to="/home">Home</Link>

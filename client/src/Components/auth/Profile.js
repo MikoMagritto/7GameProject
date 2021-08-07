@@ -47,28 +47,7 @@ export default class Profile extends Component {
       // <Link to='/logout'>Se déconnecter</Link>
 
       <div className="profile">
-        <h1> Profile </h1>
-        <div>
-          <h3> Username </h3>
-          <br />
-          <span> {this.props.userInSession.username} </span>
-        </div>
-
-        <div>
-          <h3> Height </h3> <span> {this.props.userInSession.height} </span>
-        </div>
-        <div>
-          <h3> Age </h3> <span> {this.props.userInSession.age} </span>
-        </div>
-        <div>
-          <h3> email </h3> <span> {this.props.userInSession.email} </span>
-        </div>
-        <div>
-          <h3> Level </h3> <span> {this.props.userInSession.level} </span>
-        </div>
-        <div>
-          <h3> Profil Pic </h3> <img src={this.props.userInSession.avatar} />
-        </div>
+        
         <div className="cta">
           <Link to="/">
             <button className="btn logout" onClick={this.logout}>

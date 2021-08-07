@@ -56,41 +56,71 @@ class Login extends React.Component {
         </div>
 
         <div className='section3'>
-        <div className='container'>
-          <h1>OUR CONCEPT</h1>
-          <p>Seven game is an application for meet players around. Click on a field on the map for match with other like you.</p>
-          <p>Play against player of your level for increase your rank on Seven Game</p>
-          <p>During the year the teams SG will organize big tournaments by ranks. </p>
-          <p>Lot of gifts for winners. </p>
+          <div className='container'>
+            <h1>OUR CONCEPT</h1>
+            <p>Seven game is an application for meet players around. Click on a field on the map for match with other like you.</p>
+            <p>Play against player of your level for increase your rank on Seven Game</p>
+            <p>During the year the teams SG will organize big tournaments by ranks. </p>
+            <p>Lot of gifts for winners. </p>
+          </div>
         </div>
-        </div>
+
 
         <div className='section4'>
-        <div className='container4'>
           <h1>OUR SOLUTION</h1>
-          <article>
-        <h2>Find</h2>
-        <img src ="client\public\Terrain2.png" alt=""></img>
-         <p> Are you looking for a player ? 
-          Seven Game will geolocate the playgrounds and the players around you.</p>
-          </article>
-
-      <article>
-        <h3>Play</h3>
-          <img src="client\public\ballon.png" alt=""></img>
-            <p>Match a player of your rank. 
-          Challenge your opponent and become the MVP of the Parisian playgrounds !</p>
-        </article>
-
-        <article>
-        <h3>COMMUNITY</h3>
-          <img src="client\public\Player.png" alt=""></img>
-            <p>The best community in Paris. 
-          Meet the players of the largest basketball community in Paris</p>
-        </article>
-        
+          <div className='container'>
+            <div>
+              <img src='https://res.cloudinary.com/dp1lq7mea/image/upload/v1628330156/terrain_mri2jf.png'></img>
+              <h2> Find </h2>
+              <h3>Are you looking for a players ?</h3>
+              <p> Seven game will geolocate the playgrounds and the players around you.</p>
+            </div>
+            <div>
+              <img src='https://res.cloudinary.com/dp1lq7mea/image/upload/v1628330225/ballon_wyazxz.png'></img>
+              <h2>Play</h2>
+              <h3>Match a player of your rank</h3>
+              <p>Challenge your opponent and become the MVP of the Parisian playgrounds !</p>
+            </div>
+            <div>
+              <img src='https://res.cloudinary.com/dp1lq7mea/image/upload/v1628330339/joueur_nmink2.png'></img>
+              <h2>Community</h2>
+              <h3>The best community in Paris</h3>
+              <p>Meet the players of the largest basketball community in Paris.</p>
+            </div>
+          </div>
         </div>
+
+        <div className='section5'>
+          <h1>TEAMS</h1>
+          <div className='container'>
+            <div>
+              <img src='https://res.cloudinary.com/dp1lq7mea/image/upload/v1628332929/Walid_nbsj9h.png'></img>
+              <h2>Walid Blila</h2>
+              <h3>Rock Star Developer</h3>
+              
+            </div>
+            <div>
+              <img src='https://res.cloudinary.com/dp1lq7mea/image/upload/v1628333464/WhatsApp_Image_2021-08-07_at_12.39.57_zmsxyj.jpg'></img>
+              <h2>Chloé Toussaint</h2>
+              <h3>Xtreme Landscaper</h3>
+            
+            </div>
+            <div>
+              <img src='https://res.cloudinary.com/dp1lq7mea/image/upload/v1628332922/Michel_zfrohe.png'></img>
+              <h2>Michel Hardy</h2>
+              <h3>React Killer</h3>
+              
+            </div>
+            
+            <div>
+              <img src='https://res.cloudinary.com/dp1lq7mea/image/upload/v1628333884/Tanoh_rmcswc.png'></img>
+              <h2>Tanoh Dje</h2>
+              <h3>Super Pro Designer</h3>
+              
+            </div>
+          </div>
         </div>
+
       </div>
 
     )
