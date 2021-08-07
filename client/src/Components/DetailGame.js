@@ -31,7 +31,7 @@ export default class DetailGame extends Component {
     const player = e.target.value;
 
     axios
-      .put(`http://localhost:5000/games/${params.id}/outPlayer`, player, {
+      .put(`${process.env.REACT_APP_APIURL || ""}/games/${params.id}/outPlayer`, player, {
         withCredentials: true,
       })
       .then((response) => {
@@ -50,7 +50,7 @@ export default class DetailGame extends Component {
     const player = e.target.value;
 
     axios
-      .put(`http://localhost:5000/games/${params.id}/listPlayer`, player, {
+      .put(`${process.env.REACT_APP_APIURL || ""}/games/${params.id}/listPlayer`, player, {
         withCredentials: true,
       })
       .then((response) => {

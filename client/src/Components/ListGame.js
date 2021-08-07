@@ -9,7 +9,7 @@ export default class ListGame extends Component {
 
   getGames = () => {
     axios
-      .get("http://localhost:5000/games")
+      .get(`${process.env.REACT_APP_APIURL || ""}/games`)
       .then((response) => {
         // console.log("games :", response);
         this.setState({ games: response.data });

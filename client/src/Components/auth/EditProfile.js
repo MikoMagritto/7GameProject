@@ -19,8 +19,7 @@ export default class EditProfile extends Component {
     const id = this.props.userInSession._id;
 
     axios
-      .put(
-        `http://localhost:5000/auth/edit/${id}`,
+      .put(`${process.env.REACT_APP_APIURL || ""}/auth/edit/${id}`,
         {
           username,
           email,

@@ -18,13 +18,13 @@ export default class Profile extends Component {
   //   this.props.updateUser();
   // }
   logout = (event) => {
-    axios.post("http://localhost:5000/auth/logout", {}).then((response) => {
+    axios.post(`${process.env.REACT_APP_APIURL || ""}/auth/logout`, {}).then((response) => {
       this.props.updateUser(false);
     });
   };
 
   listPlayerGame = () => {
-    axios.get("http://localhost:5000/games").then((response) => {
+    axios.get(`${process.env.REACT_APP_APIURL || ""}/games`).then((response) => {
       let copyGames = [...response.data];
       copyGames.filter((e) => e.players.includes(this.props.userInSession._id));
       this.setState({ games: copyGames });
@@ -32,7 +32,7 @@ export default class Profile extends Component {
   };
 
   listOrganisatorGame = () => {
-    axios.get("http://localhost:5000/games").then((response) => {
+    axios.get(`${process.env.REACT_APP_APIURL || ""}/games`).then((response) => {
       let copyGames = [...response.data];
       copyGames.filter((e) => e.organisator === this.props.userInSession.id);
       this.setState({ gamesOrga: copyGames });

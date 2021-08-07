@@ -16,7 +16,7 @@ export default class CreateGame extends Component {
   };
 
   getFields = () => {
-    axios.get("http://localhost:5000/fields").then((AllFieldsFromDb) => {
+    axios.get(`${process.env.REACT_APP_APIURL || ""}/fields`).then((AllFieldsFromDb) => {
       // console.log("AllfieldsReact : ", AllFieldsFromDb.data);
       this.setState({
         fields: AllFieldsFromDb.data,
@@ -36,8 +36,7 @@ export default class CreateGame extends Component {
     // const typeGame = this.state.typeGame;
 
     axios
-      .post(
-        "http://localhost:5000/games/add",
+      .post(`${process.env.REACT_APP_APIURL || ""}/games/add`,
         {
           field: this.state.field,
           name: this.state.name,
