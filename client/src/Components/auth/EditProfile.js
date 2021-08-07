@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { uploadFile } from "./auth-service";
-import {Redirect} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class EditProfile extends Component {
   state = {
@@ -32,7 +32,7 @@ export default class EditProfile extends Component {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log("response", response);
+        // console.log("response", response);
         this.props.updateUser(response.data);
         this.props.history.push("/auth");
       });
@@ -42,6 +42,17 @@ export default class EditProfile extends Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
+
+//   deleteProfile = (e) => {
+//     e.preventDefault();
+//     const id = this.props.userInSession._id;
+
+//     axios.get(`http://localhost:5000/auth/delete/${id}`)
+//     .then(() => {
+//         console.log("utilisateur delete")
+//       this.props.history.push("/");
+//     });
+//   };
 
   fileChange = (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -137,7 +148,11 @@ export default class EditProfile extends Component {
             </label>
             <input type="file" onChange={(e) => this.fileChange(e)} />
           </p>
-          <button>Submit</button>
+          <button>Change</button>
+          
+            {/* <button onClick={(e) => this.deleteProfile(e)}>
+              Delete my profile
+            </button> */}
         </form>
       </div>
     );

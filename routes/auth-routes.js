@@ -4,10 +4,10 @@ const bcrypt = require("bcryptjs");
 const fileUpload = require("../configs/cloudinary.config");
 // require the user model !!!!
 const User = require("../models/User");
+const Game = require("../models/User");
 
 authRoutes.post("/signup", (req, res, next) => {
   const { username, password, email, age, height, level } = req.body;
-  
 
   let role;
   if (email === "admin@admin.fr") {
@@ -111,13 +111,13 @@ authRoutes.put("/edit/:id", (req, res, next) => {
   //console.log("editRoad")
   const { username, email, age, height, level } = req.body;
   const data = { username, email, age, height, level };
-  const id = req.params.id
-  console.log("id: ",id);
+  const id = req.params.id;
+  console.log("id: ", id);
   if (!req.session.currentUser) {
     res.status(401).json({ message: "You need to be logged in!" });
     return;
   }
-  
+
   User.findByIdAndUpdate({ _id: id }, data, { new: true })
     .then((newUser) => {
       console.log("new user", newUser);
@@ -126,10 +126,13 @@ authRoutes.put("/edit/:id", (req, res, next) => {
     .catch(next);
 });
 
-authRoutes.get("/auth/delete/:id", (req, res) => {
+authRoutes.get("/delete/:id", (req, res) => {
   const id = req.params.id;
+  const IdGame = 
   User.findByIdAndDelete(id)
-    .then(() => res.redirect("/"))
+    .then(() => {
+        res.redirect("/")
+      })
     .catch((error) => console.log(error));
 });
 
