@@ -44,6 +44,7 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchTheUser();
+    console.log('conf :',process.env)
   }
 
   render() {
