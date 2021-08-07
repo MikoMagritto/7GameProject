@@ -1,0 +1,11 @@
+.profile {
+  background-color: #292222;
+  margin:0;
+}
+
+.profile .section1 h1 {
+  font-weight: 400;
+  font-size:30px;
+  color: white;
+  
+}

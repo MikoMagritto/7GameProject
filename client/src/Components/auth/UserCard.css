@@ -1,18 +1,49 @@
+.userCard{
+  width: 199px;
+  border: 2px solid #673389 ;
+  background-color: #673389;
+  border-radius: 4%;
+}
+
 .userCard .userPersonalData {
   position: relative;
 }
 
 .userCard .userPersonalData img {
   height: 300px;
-  position: absolute;
 }
 
 .userCard .userPersonalData div {
   position: absolute;
-  color: red;
+  display:flex;
+  flex-direction:column ;
+  color: white;
+  font-weight: 300;
+  font-size: 15px;
 }
 
 .userCard .userPersonalData .div1 {
   bottom: 0;
   left: 0;
+}.userCard .userPersonalData .div2 {
+  bottom: 0;
+  left: 45%;
+}.userCard .userPersonalData .div3 {
+  bottom: 0;
+  right: 0;
+}
+
+.userCard .userStats {
+  display:flex;
+  flex-direction: row;
+
+}
+
+.userCard .userStats div {
+  display:flex;
+  flex-direction:column ;
+  color:white
+}
+.orange {
+  color:#FEA146;
 }

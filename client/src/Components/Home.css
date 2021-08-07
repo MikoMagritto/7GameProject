@@ -16,12 +16,12 @@
 .home .section1 .container {
   position: absolute;
   left: 80px;
-  bottom: 15%;
+  bottom: 25%;
 }
 
 .home .section1 .container .text {
   width: 420px;
-  height: 236px;
+  height: 280px;
   background: rgba(0, 0, 0, 0.4);
   padding: 5px 30px;
   font-style: normal;

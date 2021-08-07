@@ -12,27 +12,27 @@ const UserCard = (props) => {
           <span>Paris 9ème</span>
           <span>{props.userInSession.age} ans </span>
         </div>
-        <div>
+        <div className='div2'>
           <span>Height</span>
           <span>{props.userInSession.height} cm</span>
         </div>
-        <div>
+        <div className='div3'>
           <span>Weight</span>
           <span>77 kg</span>
         </div>
       </div>
 
       <div className='userStats'>
-        <div>
-          <span>12</span>
+        <div className='game'>
+          <span className='orange'>12</span>
           <span>Matchs joués</span>
         </div>
-        <div>
-          <span>6</span>
+        <div className='playground'>
+          <span className='orange'>6</span>
           <span>Lieux préférés</span>
         </div>
-        <div>
-          <span>5</span>
+        <div className= 'gamecreate'>
+          <span className='orange'>5</span>
           <span>Matchs crées</span>
         </div>
       </div>
