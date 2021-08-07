@@ -8,15 +8,16 @@ const service = axios.create({
 export default service;
 
 
-function signup(username, password, email, height, age, level, avatar, role) {
+function signup(username, password, email, height, age, level,avatar, role) {
+    console.log("avatar",avatar);
     return service.post('/signup', {
             username,
             password,
             email,
             height,
             age,
-            level,
             avatar,
+            level,
             role,
         })
         .then(response => response.data)

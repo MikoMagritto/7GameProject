@@ -6,8 +6,15 @@ const fileUpload = require("../configs/cloudinary.config");
 const User = require("../models/User");
 const Game = require("../models/User");
 
+authRoutes.post("/upload", fileUpload.single("avatar"), (req, res, next) => {
+  console.log("file is: ", req.file.path);
+  // get secure_url from the file object and save it in the
+  // variable 'secure_url', but this can be any name, just make sure you remember to use the same in frontend
+  res.json({ avatar: req.file && req.file.path });
+});
+
 authRoutes.post("/signup", (req, res, next) => {
-  const { username, password, email, age, height, level } = req.body;
+  const { username, password, email, age, height, level, avatar } = req.body;
 
   let role;
   if (email === "admin@admin.fr") {
@@ -44,6 +51,7 @@ authRoutes.post("/signup", (req, res, next) => {
         height: height,
         level: level,
         role: role,
+        avatar: avatar
       });
 
       // if (!req.file) {
@@ -68,13 +76,6 @@ authRoutes.post("/signup", (req, res, next) => {
       console.log(err);
       res.status(500).json({ message: "Username check went bad." });
     });
-});
-
-authRoutes.post("/upload", fileUpload.single("avatar"), (req, res, next) => {
-  console.log("file is: ", req.file);
-  // get secure_url from the file object and save it in the
-  // variable 'secure_url', but this can be any name, just make sure you remember to use the same in frontend
-  res.json({ avatar: req.file && req.file.path });
 });
 
 authRoutes.post("/login", (req, res, next) => {
@@ -128,11 +129,10 @@ authRoutes.put("/edit/:id", (req, res, next) => {
 
 authRoutes.get("/delete/:id", (req, res) => {
   const id = req.params.id;
-  const IdGame = 
-  User.findByIdAndDelete(id)
+  const IdGame = User.findByIdAndDelete(id)
     .then(() => {
-        res.redirect("/")
-      })
+      res.redirect("/");
+    })
     .catch((error) => console.log(error));
 });
 
