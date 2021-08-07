@@ -3,7 +3,7 @@
 }
 
 .solution {
-  background-color: black;
+  background-color: #292222;
   color : white;
   font-family: sans-serif;
   overflow: hidden;
@@ -21,7 +21,7 @@
 }
 .art {
 
-  background-color: black;
+  background-color:#292222;
   color : white;
   display : flex;
   margin-left: auto;
