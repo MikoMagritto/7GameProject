@@ -1,0 +1,18 @@
+.userCard .userPersonalData {
+  position: relative;
+}
+
+.userCard .userPersonalData img {
+  height: 300px;
+  position: absolute;
+}
+
+.userCard .userPersonalData div {
+  position: absolute;
+  color: red;
+}
+
+.userCard .userPersonalData .div1 {
+  bottom: 0;
+  left: 0;
+}

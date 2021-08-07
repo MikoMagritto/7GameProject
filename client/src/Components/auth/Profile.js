@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import service from "./auth-service";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import UserCard from "./UserCard";
+import "./Profile.css";
 
 export default class Profile extends Component {
   state = {
     games: [],
-    gamesOrga:[]
+    gamesOrga: []
   };
   componentDidMount() {
     this.listPlayerGame();
@@ -45,9 +47,11 @@ export default class Profile extends Component {
     }
     return (
       // <Link to='/logout'>Se déconnecter</Link>
-
       <div className="profile">
-        
+        <div className="section1"> Hello {this.props.userInSession.username} ! </div>
+        <div className="section2">
+          <UserCard userInSession={this.props.userInSession} />
+        </div>
         <div className="cta">
           <Link to="/">
             <button className="btn logout" onClick={this.logout}>
@@ -60,30 +64,6 @@ export default class Profile extends Component {
           <Link to="/auth/edit">
             <button className="btn add">Modifier son profil</button>
           </Link>
-        </div>
-        <div>
-          {this.state.games.map((game) => {
-            return (
-              <div>
-                <h2>{game.name}</h2>
-                <div>{game.date}</div>
-                <div>{game.hour}</div>
-                <div>{game.field.name}</div>
-                <div>{game.organisator.username}</div>
-              </div>
-            );
-          })}
-            {this.state.gamesOrga.map((game) => {
-            return (
-              <div>
-                <h2>{game.name}</h2>
-                <div>{game.date}</div>
-                <div>{game.hour}</div>
-                <div>{game.field.name}</div>
-                <div>{game.organisator.username}</div>
-              </div>
-            );
-          })}
         </div>
       </div>
     );
