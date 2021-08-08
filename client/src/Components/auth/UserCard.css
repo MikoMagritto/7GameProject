@@ -1,42 +1,44 @@
 .userCard{
+  height:290px;
   width: 199px;
   border: 2px solid #673389 ;
   background-color: #673389;
-  border-radius: 4%;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .userCard .userPersonalData {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px 10px 0 0;
+  height: 235px;
   position: relative;
 }
 
-.userCard .userPersonalData img {
-  height: 300px;
-}
-
-.userCard .userPersonalData div {
+.userCard .divs {
   position: absolute;
   display:flex;
-  flex-direction:column ;
-  color: white;
-  font-weight: 300;
-  font-size: 15px;
+  flex-direction: row;
+  justify-content: space-around;
+  bottom: 5px;
+  width:100%;
+  font-size: 12px;
+  font-weight: 450;
 }
 
-.userCard .userPersonalData .div1 {
-  bottom: 0;
-  left: 0;
-}.userCard .userPersonalData .div2 {
-  bottom: 0;
-  left: 45%;
-}.userCard .userPersonalData .div3 {
-  bottom: 0;
-  right: 0;
+.userCard .divs div {
+  display:flex;
+  flex-direction:column ;
+  color:white
 }
 
 .userCard .userStats {
   display:flex;
   flex-direction: row;
-
+  justify-content: space-around;
+  font-size: 12px;
+  font-weight: 450;
 }
 
 .userCard .userStats div {
@@ -46,4 +48,6 @@
 }
 .orange {
   color:#FEA146;
+  font-size: 14px;
+  font-weight: 550;
 }

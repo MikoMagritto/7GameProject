@@ -6,19 +6,20 @@ const UserCard = (props) => {
   return (
     <div className="userCard">
 
-      <div className='userPersonalData'>
-        <img src={props.userInSession.avatar}></img>
-        <div className ='div1'>
-          <span>Paris 9ème</span>
-          <span>{props.userInSession.age} ans </span>
-        </div>
-        <div className='div2'>
-          <span>Height</span>
-          <span>{props.userInSession.height} cm</span>
-        </div>
-        <div className='div3'>
-          <span>Weight</span>
-          <span>77 kg</span>
+      <div className='userPersonalData' style={{ backgroundImage: `url(${props.userInSession.avatar})` }}>
+        <div className='divs'>
+          <div >
+            <span>Paris 9ème</span>
+            <span>{props.userInSession.age} ans </span>
+          </div>
+          <div >
+            <span>Height</span>
+            <span>{props.userInSession.height} cm</span>
+          </div>
+          <div>
+            <span>Weight</span>
+            <span>77 kg</span>
+          </div>
         </div>
       </div>
 
@@ -27,11 +28,11 @@ const UserCard = (props) => {
           <span className='orange'>12</span>
           <span>Matchs joués</span>
         </div>
-        <div className='playground'>
+        <div>
           <span className='orange'>6</span>
           <span>Lieux préférés</span>
         </div>
-        <div className= 'gamecreate'>
+        <div>
           <span className='orange'>5</span>
           <span>Matchs crées</span>
         </div>
