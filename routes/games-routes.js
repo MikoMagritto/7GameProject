@@ -10,8 +10,9 @@ gamesRoutes.get("/", (req, res, next) => {
   //------On trouve le match-------//
   Game.find() // [ {field: '12341234234'}, {} ]
     .populate("field")
+    .populate("organisator")
     .then((AllGamesFromDb) => {
-      // console.log("AllGamesFromDb", AllGamesFromDb);
+      console.log("AllGamesFromDb", AllGamesFromDb);
       res.json(AllGamesFromDb);
     })
     .catch((err) => console.log(err));

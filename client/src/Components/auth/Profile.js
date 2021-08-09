@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
 import "./Profile.css";
+//import DayJS from 'react-dayjs';
 
 export default class Profile extends Component {
   state = {
@@ -43,6 +44,7 @@ export default class Profile extends Component {
       .then((response) => {
         let copyGames = [...response.data];
         copyGames.filter((e) => e.organisator === this.props.userInSession.id);
+        console.log('copyGames',copyGames)
         this.setState({ gamesOrga: copyGames });
       });
   };
@@ -107,6 +109,7 @@ export default class Profile extends Component {
                     <Link to={`/games/${game._id}`}>
                       <button>Detail Game</button>
                     </Link>
+                      <button>Delete game</button>
                   </div>
                 );
               })}

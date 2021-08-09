@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+
 export default class ListGame extends Component {
   state = {
     games: [],
@@ -21,6 +22,7 @@ export default class ListGame extends Component {
     this.getGames();
   }
   render() {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     return (
       <div>
         <ul>
@@ -44,13 +46,13 @@ export default class ListGame extends Component {
                    <span>Mood du match : {game.mood} </span>
                 </div>
                 <div>
-                   <span>Jour du match: {game.date} </span>
+                   <span>Jour du match: {game.date}</span>
                 </div>
                 <div>
                    <span>Terrain : {game.field.name} </span>
                 </div>
                 <div>
-                   <span>Niveau de jeu : {game.levelGame} </span>
+                   <span> Game creator : {game.organisator.username} </span>
                 </div>
               </li>
             );
