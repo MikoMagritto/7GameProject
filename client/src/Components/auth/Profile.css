@@ -1,0 +1,8 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+}
+
+.cta {
+margin-top: 300px;
+}

@@ -75,6 +75,7 @@ class App extends Component {
                 updateUser={this.updateUser}
                 {...props}
                 userInSession={this.state.user}
+                history={props.history}
               />
             )}
           />
