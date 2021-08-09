@@ -37,7 +37,7 @@ export default class Signup extends React.Component {
         console.log("response client :", response);
         this.setState({ username: "", password: "", email: "", height: "", age: "", level: "", avatar: "" });
         this.props.addUser(response);
-        this.props.history.push("/home");
+        this.props.history.push("/auth");
       })
       .catch(error => console.log(error))
 

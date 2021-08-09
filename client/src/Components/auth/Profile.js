@@ -40,7 +40,7 @@ export default class Profile extends Component {
   };
 
   render() {
-    // console.log("games", this.state.games);
+    console.log("games", this.state.games);
 
     if (!this.props.userInSession) {
       return "loading";

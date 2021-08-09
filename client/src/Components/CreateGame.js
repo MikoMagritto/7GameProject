@@ -61,7 +61,7 @@ export default class CreateGame extends Component {
           levelGame: "",
           typeGame: "",
         });
-        // this.props.updateUser(response);
+        this.props.history.push("/auth");
       })
       .catch((err) => console.log(err));
   };

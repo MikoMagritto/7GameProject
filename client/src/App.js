@@ -56,7 +56,7 @@ class App extends Component {
           <Route
             exact
             path="/signup"
-            render={(props) => <Signup addUser={this.updateUser} />}
+            render={(props) => <Signup addUser={this.updateUser} history={props.history} />}
           />
 
           <Route
