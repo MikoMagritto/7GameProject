@@ -48,7 +48,9 @@ export default class Profile extends Component {
     return (
       // <Link to='/logout'>Se déconnecter</Link>
       <div className="profile">
-        <div className="section1"> Hello {this.props.userInSession.username} ! </div>
+        <div className="section1">
+          <h1> Hello {this.props.userInSession.username} !</h1> 
+          </div>
         <div className="section2">
           <UserCard userInSession={this.props.userInSession} />
         </div>
