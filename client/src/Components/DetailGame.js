@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
-import { Redirect } from "react-router-dom";
+import Moment from 'react-moment';
 
 export default class DetailGame extends Component {
   state = {
@@ -85,7 +84,7 @@ export default class DetailGame extends Component {
 
             <div>
               <h1>Date</h1>
-              <span>{this.state.game.date}</span>
+              <span><Moment format="D MMM YYYY" withTitle>{this.state.game.date}</Moment></span>
             </div>
 
             <div>

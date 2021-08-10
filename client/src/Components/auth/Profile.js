@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
 import "./Profile.css";
 import UserInfo from "./UserInfo";
+import Moment from "react-moment"
 
 export default class Profile extends Component {
   state = {
@@ -44,6 +45,7 @@ export default class Profile extends Component {
       .then((response) => {
         let copyGames = [...response.data];
         copyGames.filter((e) => e.organisator === this.props.userInSession.id);
+        console.log('copyGames',copyGames)
         this.setState({ gamesOrga: copyGames });
       });
   };
@@ -85,7 +87,7 @@ export default class Profile extends Component {
                 return (
                   <div>
                     <h2>{game.name}</h2>
-                    <div>{game.date}</div>
+                    <div><Moment format="D MMM YYYY" withTitle>{game.date}</Moment></div>
                     <div>{game.hour}</div>
                     <div>{game.field.name}</div>
                     <div>{game.organisator.username}</div>
@@ -109,6 +111,7 @@ export default class Profile extends Component {
                     <Link to={`/games/${game._id}`}>
                       <button>Detail Game</button>
                     </Link>
+                      <button>Delete game</button>
                   </div>
                 );
               })}
