@@ -28,45 +28,48 @@ export default class ListGame extends Component {
         <ul className="ListGame">
           {this.state.games.map((game) => {
             return (
-              <Link to={`/games/${game._id}`}>
+              <Link to={`/games/${game._id}`} className="link">
                 <li key={game._id}>
-                <div>
-                  <img src={game.field.img} />
-                  {/* -------------------------- */}
-                </div>
-                <div>
-                  <div>
-                    <h1>
-                      {game.field.name}
-                    </h1>
-                    <span>{game.field.longitude}</span>
-                    <span>{game.field.lattitude}</span>
+                  <div className="buttonCard">
+                    <img src={game.field.img} />
+                    <button>See more</button>
                   </div>
-                  <div>
-                    <span>
-                      <Moment format="D MMM YYYY" withTitle>
-                        {game.date}
-                      </Moment>
-                    </span>
-                    <span>{game.hour}</span>
+
+                  <div className="containerText">
+                    <div className="middle"></div>
+                    <div class="fieldHourdate">
+                      <div className="field">
+                        <h3>{game.field.name}</h3>
+                        <span>{game.field.longitude}</span>
+                        <span>{game.field.lattitude}</span>
+                      </div>
+                      <div className="HourDate">
+                        <span className="date">
+                          <Moment format="D MMM YYYY" withTitle>
+                            {game.date}
+                          </Moment>
+                        </span>
+                        <span>{game.hour}</span>
+                      </div>
+                    </div>
+                    <div className="GameOrganisator">
+                      <div className="Game">
+                        <span>Level {game.levelGame}</span>
+                        <span>Mood {game.mood}</span>
+                        <span className="players">
+                          {game.players.length} / {game.numPlayers}{" "}
+                          <span className="playersTypo">players</span>
+                        </span>
+                      </div>
+
+                      <div className="organisator">
+                        <span> By {game.organisator.username} </span>
+                        <img src={game.organisator.avatar} />
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <span>
-                      {game.players.length}/{game.numPlayers} joueurs
-                    </span>
-                  </div>
-                  <div>
-                    <span> {game.levelGame} </span>
-                  </div>
-                  <div>
-                    <span>Mood Game : {game.mood} </span>
-                  </div>
-                  <div></div>
-                  <div>
-                    <span> Game creator : {game.organisator.username} </span>
-                  </div>
-                </div>
-              </li></Link>
+                </li>
+              </Link>
             );
           })}
         </ul>
