@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
 import "./Profile.css";
 import UserInfo from "./UserInfo";
-import Moment from "react-moment"
+import Moment from "react-moment";
 
 export default class Profile extends Component {
   state = {
@@ -14,7 +14,7 @@ export default class Profile extends Component {
   };
   componentDidMount() {
     this.listPlayerGame();
-    this.listOrganisatorGame();
+    // this.listOrganisatorGame();
   }
   // componentDidUpdate(){
   //   this.props.updateUser();
@@ -32,27 +32,35 @@ export default class Profile extends Component {
       .get(`${process.env.REACT_APP_APIURL || ""}/games`)
       .then((response) => {
         let copyGames = [...response.data];
+        let organisatorGame = [...response.data];
         copyGames.filter((e) =>
           e.players.includes(this.props.userInSession._id)
         );
-        this.setState({ games: copyGames });
+        console.log("playersGame",copyGames);
+        organisatorGame.filter(
+          (e) => e.organisator._id === this.props.userInSession._id
+        );
+        console.log("organisatorGame", organisatorGame);
+        this.setState({ games: copyGames, gamesOrga: organisatorGame });
       });
   };
 
-  listOrganisatorGame = () => {
-    axios
-      .get(`${process.env.REACT_APP_APIURL || ""}/games`)
-      .then((response) => {
-        let copyGames = [...response.data];
-        copyGames.filter((e) => e.organisator._id === this.props.userInSession._id);
-        console.log('copyGames',copyGames.length)
-        this.setState({ gamesOrga: copyGames });
-      });
-  };
+  // listOrganisatorGame = () => {
+  //   axios
+  //     .get(`${process.env.REACT_APP_APIURL || ""}/games`)
+  //     .then((response) => {
+  //       let copyGames = [...response.data];
+  //       copyGames.filter(
+  //         (e) => e.organisator._id === this.props.userInSession._id
+  //       );
+  //       console.log("copyGames", copyGames.length);
+  //       this.setState({ gamesOrga: copyGames });
+  //     });
+  // };
 
   render() {
     // console.log("games", this.state.games);
-
+    console.log("UserSession",this.props.userInSession)
     if (!this.props.userInSession) {
       return "loading";
     }
@@ -87,7 +95,11 @@ export default class Profile extends Component {
                 return (
                   <div>
                     <h2>{game.name}</h2>
-                    <div><Moment format="D MMM YYYY" withTitle>{game.date}</Moment></div>
+                    <div>
+                      <Moment format="D MMM YYYY" withTitle>
+                        {game.date}
+                      </Moment>
+                    </div>
                     <div>{game.hour}</div>
                     <div>{game.field.name}</div>
                     <div>{game.organisator.username}</div>
@@ -111,7 +123,7 @@ export default class Profile extends Component {
                     <Link to={`/games/${game._id}`}>
                       <button>Detail Game</button>
                     </Link>
-                      <button>Delete game</button>
+                    <button>Delete game</button>
                   </div>
                 );
               })}

@@ -32,7 +32,7 @@ const NavBar = (props) => {
               <Link to="/login"> Login </Link>
             </li>
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </li>
           </ul>
         )}
