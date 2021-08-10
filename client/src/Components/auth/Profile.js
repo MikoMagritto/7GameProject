@@ -31,16 +31,11 @@ export default class Profile extends Component {
     axios
       .get(`${process.env.REACT_APP_APIURL || ""}/games`)
       .then((response) => {
-        let copyGames = [...response.data];
-        let organisatorGame = [...response.data];
-        copyGames.filter((e) =>
-          e.players.includes(this.props.userInSession._id)
+        let copyGames = response.data.filter((e) =>  e.players.includes(this.props.userInSession._id));
+        // console.log("playersGame", copyGames);
+        let organisatorGame = response.data.filter((e) => e.organisator._id === this.props.userInSession._id
         );
-        console.log("playersGame",copyGames);
-        organisatorGame.filter(
-          (e) => e.organisator._id === this.props.userInSession._id
-        );
-        console.log("organisatorGame", organisatorGame);
+        // console.log("organisatorGame", organisatorGame);
         this.setState({ games: copyGames, gamesOrga: organisatorGame });
       });
   };
@@ -60,7 +55,7 @@ export default class Profile extends Component {
 
   render() {
     // console.log("games", this.state.games);
-    console.log("UserSession",this.props.userInSession)
+    console.log("UserSession", this.props.userInSession);
     if (!this.props.userInSession) {
       return "loading";
     }
