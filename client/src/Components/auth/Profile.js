@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
 import "./Profile.css";
+import UserInfo from "./UserInfo";
 
 export default class Profile extends Component {
   state = {
@@ -61,6 +62,7 @@ export default class Profile extends Component {
         </div>
         <div className="section2">
           <UserCard userInSession={this.props.userInSession} />
+          <UserInfo userInSession={this.props.userInSession} />
         </div>
         <div className="cta">
           <Link to="/">
