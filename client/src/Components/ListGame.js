@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import Moment from "react-moment";
+import "./ListGame.css";
 
 export default class ListGame extends Component {
   state = {
@@ -22,39 +23,50 @@ export default class ListGame extends Component {
     this.getGames();
   }
   render() {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     return (
       <div>
-        <ul>
+        <ul className="ListGame">
           {this.state.games.map((game) => {
             return (
-              <li key={game._id}>
+              <Link to={`/games/${game._id}`}>
+                <li key={game._id}>
                 <div>
-                  <img src={game.field.img}/>
-                   {/* <span>Image du Terrain</span> */}
-                </div>
-                <h1>
-                  <Link to={`/games/${game._id}`}>{game.name}</Link>
-                </h1>
-                <div>
-                   <span>{game.numPlayers} joueurs</span>
+                  <img src={game.field.img} />
+                  {/* -------------------------- */}
                 </div>
                 <div>
-                   <span>Niveau de jeu : {game.levelGame} </span>
+                  <div>
+                    <h1>
+                      {game.field.name}
+                    </h1>
+                    <span>{game.field.longitude}</span>
+                    <span>{game.field.lattitude}</span>
+                  </div>
+                  <div>
+                    <span>
+                      <Moment format="D MMM YYYY" withTitle>
+                        {game.date}
+                      </Moment>
+                    </span>
+                    <span>{game.hour}</span>
+                  </div>
+                  <div>
+                    <span>
+                      {game.players.length}/{game.numPlayers} joueurs
+                    </span>
+                  </div>
+                  <div>
+                    <span> {game.levelGame} </span>
+                  </div>
+                  <div>
+                    <span>Mood Game : {game.mood} </span>
+                  </div>
+                  <div></div>
+                  <div>
+                    <span> Game creator : {game.organisator.username} </span>
+                  </div>
                 </div>
-                <div>
-                   <span>Mood du match : {game.mood} </span>
-                </div>
-                <div>
-                   <span>Jour du match: {game.date}</span>
-                </div>
-                <div>
-                   <span>Terrain : {game.field.name} </span>
-                </div>
-                <div>
-                   <span> Game creator : {game.organisator.username} </span>
-                </div>
-              </li>
+              </li></Link>
             );
           })}
         </ul>

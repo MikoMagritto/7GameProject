@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
 import "./Profile.css";
-//import DayJS from 'react-dayjs';
+import Moment from "react-moment"
 
 export default class Profile extends Component {
   state = {
@@ -85,7 +85,7 @@ export default class Profile extends Component {
                 return (
                   <div>
                     <h2>{game.name}</h2>
-                    <div>{game.date}</div>
+                    <div><Moment format="D MMM YYYY" withTitle>{game.date}</Moment></div>
                     <div>{game.hour}</div>
                     <div>{game.field.name}</div>
                     <div>{game.organisator.username}</div>
