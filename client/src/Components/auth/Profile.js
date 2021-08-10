@@ -44,14 +44,14 @@ export default class Profile extends Component {
       .get(`${process.env.REACT_APP_APIURL || ""}/games`)
       .then((response) => {
         let copyGames = [...response.data];
-        copyGames.filter((e) => e.organisator === this.props.userInSession.id);
-        console.log('copyGames',copyGames)
+        copyGames.filter((e) => e.organisator._id === this.props.userInSession._id);
+        console.log('copyGames',copyGames.length)
         this.setState({ gamesOrga: copyGames });
       });
   };
 
   render() {
-    console.log("games", this.state.games);
+    // console.log("games", this.state.games);
 
     if (!this.props.userInSession) {
       return "loading";
