@@ -83,7 +83,8 @@
   background-image: url('https://res.cloudinary.com/dp1lq7mea/image/upload/v1628191311/oleksii-s-O2kqxbix4Mw-unsplash_zady7o.jpg');
   background-position: right center;
   background-repeat: no-repeat;
-  background-size: 45%;
+  background-size: 800px;
+  margin-bottom: 25px;
 }
 
 .home .section3 .container {
@@ -245,7 +246,7 @@
 }
 
 .home .section6 .contact .text textarea {
-height: 210px;
+  height: 210px;
   background-color: transparent;
   resize: none;
   outline: none;
@@ -255,8 +256,9 @@ height: 210px;
   border-bottom: none;
   border-right: none;
 }
+
 .home .section6 .contact .text .button {
-  background-color: #FABB76 ;
+  background-color: #FABB76;
   font-size: 15px;
   font-weight: bold;
   padding: 15px 10px;
