@@ -26,15 +26,15 @@ const UserCard = (props) => {
       <div className='userStats'>
         <div className='game'>
           <span className='orange'>12</span>
-          <span>Matchs joués</span>
+          <span>Games played</span>
         </div>
         <div>
           <span className='orange'>6</span>
-          <span>Lieux préférés</span>
+          <span>Favorite playground</span>
         </div>
         <div>
           <span className='orange'>5</span>
-          <span>Matchs crées</span>
+          <span>Games Created</span>
         </div>
       </div>
 

@@ -7,8 +7,8 @@ const UserInfo = (props) => {
     <div className="userInfo">
 
       <div className='edit'>
-      <img src="https://res.cloudinary.com/dp1lq7mea/image/upload/v1628697956/pen_rccrso.png"></img>
-        <a href="/auth/edit">Edit</a>
+      {/*<img src="https://res.cloudinary.com/dp1lq7mea/image/upload/v1628697956/pen_rccrso.png"></img>
+        <a href="/auth/edit">Edit</a>*/}
       </div>
       <div className='block1'>
         <div className='mainInformation'>

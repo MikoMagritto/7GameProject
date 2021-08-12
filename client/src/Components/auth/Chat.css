@@ -1,0 +1,39 @@
+.chat {
+  height: 290px;
+  width: 450px;
+  border: 2px solid #673389;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #292222;
+  color: white;
+}
+
+.chat h2 {
+  margin: 2px 11px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.chat .profil {
+  width: 50%;
+  font-size: 15px;
+  font-weight: 50;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
+.chat .profil img {
+  height: 60px;
+}
+
+.chat .profil .pastil {
+  border-radius: 100%;
+  background-color: #FABB76;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  color: black;
+  font-weight: 500;
+}
