@@ -95,7 +95,7 @@ gamesRoutes.get("/:id", (req, res, next) => {
 });
 
 gamesRoutes.put("/edit/:id", (req, res, next) => {
-  
+
   const organisator = req.session.currentUser;
 
   const { name, players, numPlayers, levelGame, field, mood, date, typeGame } =
@@ -174,12 +174,18 @@ gamesRoutes.put("/:id/outPlayer", (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-gamesRoutes.get("/delete/:id", (req, res) => {
+gamesRoutes.delete("/delete/:id", (req, res) => {
   const id = req.params.id;
-  Game.findByIdAndDelete(id)
+
+  console.log("id", id)
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({ message: 'Specified id is not valid' });
+    return;
+  }
+  Game.findByIdAndRemove(id)
     .then(() => {
-      res.redirect("/");
       console.log("The game is deleted")
+      res.json({ message: "The game is deleted with success" })
     }
     )
     .catch((error) => console.log(error));

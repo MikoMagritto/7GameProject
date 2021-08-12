@@ -6,7 +6,7 @@ body {
   position: relative;
 }
 
-.section2{
+.partie2 {
   position: absolute;
   top: 50%; left:50%;
   transform: translate(-50%, -50%);
@@ -15,7 +15,7 @@ body {
 	flex-wrap: nowrap;
 	justify-content: space-between;
 }
-.section1 img {
+.partie1 img {
   width: 100%;
 }
 
@@ -77,8 +77,4 @@ body {
 
 .playerName img {
   width: 45px;
-}
-
-.shape {  
-opacity: 0.3;
 }

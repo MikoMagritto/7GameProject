@@ -35,17 +35,19 @@ export default class Profile extends Component {
         let organisatorGame = response.data.filter(
           (e) => e.organisator._id === this.props.userInSession._id
         );
-        // console.log("organisatorGame", organisatorGame);
+        console.log("organisatorGame", organisatorGame);
         this.setState({ games: copyGames, gamesOrga: organisatorGame });
       });
   };
 
-  deleteGame = () => {
-    const { params } = this.props.match;
+  deleteGame = (id) => {
     axios
-      .get(`${process.env.REACT_APP_APIURL || ""}/games/delete/${params.id}`)
+      .delete(`${process.env.REACT_APP_APIURL || ""}/games/delete/${id}`, { withCredentials: true })
       .then(() => {
-        this.props.history.push("/auth");
+        let copyGamesOrga = [...this.state.gamesOrga]
+        let indexGame = copyGamesOrga.indexOf(id);
+        copyGamesOrga.splice(indexGame, 1);
+        this.setState({ gamesOrga: copyGamesOrga })
       })
       .catch((err) => console.log(err));
   };
@@ -115,7 +117,7 @@ export default class Profile extends Component {
                     <Link to={`/games/${game._id}`}>
                       <button>Detail Game</button>
                     </Link>
-                    <button onClick={this.deleteGame()}>Delete game</button>
+                    <button onClick={() => this.deleteGame(game._id)}>Delete game</button>
                   </div>
                 );
               })}

@@ -15,7 +15,7 @@ export default class DetailGame extends Component {
     const params = this.props.match.params;
     // console.log(params);
     axios
-      .get(`http://localhost:5000/games/${params.id}`, {
+      .get(`${process.env.REACT_APP_APIURL || ""}/games/${params.id}`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -69,14 +69,14 @@ export default class DetailGame extends Component {
       <div className="detailgame">
         {this.props.userInSession ? (
           <div className="parent">
-            <div className="section1">
+            <div className="partie1">
               <img src={this.state.game.field.img} />
             </div>
             {/* <div>
               <h1>Name</h1>
               <span> {this.state.game.name}</span>
             </div> */}
-            <div className="section2">
+            <div className="partie2">
               <div className="FieldDataEtBtn">
                 <div className="FieldData">
                   <div>
