@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { login } from "./auth-service";
-import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+// import axios from "axios";
+// import { Link, Redirect } from "react-router-dom";
 import "./Login.css";
 
 
@@ -68,39 +68,35 @@ export default class LoginUser extends Component {
 
   render() {
     return (
-      <div class="back-image">
-      <div className = "login">
+      <div className="green">
+      <div className="login">
+        <img src='https://res.cloudinary.com/dro81vxlb/image/upload/v1628768443/logo_vf_mwvddj.png' alt="" className="logo" />
     
         <form onSubmit={this.handleSubmit}>
           {this.state.error && <p className="error">{this.state.error}</p>}
-
+          <h1>SIGN IN</h1>
           <p>
             <label>
               <em>Username</em>
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleChange}
-              />
+              <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
             </label>
           </p>
 
           <p>
             <label>
               <em>Password</em>
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
+              <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+                <p className="forgot">Forgot password</p>
             </label>
           </p>
-          <button>Se connecter</button>
+
+          <button className="log" type="submit">Login</button>
+          {/* <p>Don't have an account</p> */}
+          <a href="/signup" className="log2" type="submit">Sign up</a>
         </form>
       </div>
       </div>
+      
     );
   }
 }
