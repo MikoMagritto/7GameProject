@@ -81,9 +81,6 @@ export default class Profile extends Component {
           <Link to="/games/add">
             <button className="btn add">Create a game</button>
           </Link>
-          <Link to="/auth/edit">
-            <button className="btn add">Modifier son profil</button>
-          </Link>
         </div>
         <div>
           <div>
