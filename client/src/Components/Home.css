@@ -21,18 +21,22 @@
 
 .home .section1 .container .text {
   width: 420px;
-  height: 280px;
+  height: 170px;
   background: rgba(0, 0, 0, 0.4);
   padding: 5px 30px;
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 170%;
+  
+  
 }
 
 .home .section1 .container .text h1 {
-  color: white
+  color: white;
+  margin:10px 0px;
 }
+
 
 .home .section1 .container .text .orange {
   color: #FEA146;
