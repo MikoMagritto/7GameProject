@@ -262,3 +262,9 @@ height: 210px;
   padding: 15px 10px;
   border: none;
 }
+
+.toto{
+  height:30px;
+  width: 30px;
+  background-color: tomato;
+}

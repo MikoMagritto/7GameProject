@@ -83,6 +83,7 @@ export default class Profile extends Component {
         </div>
         <div>
           <div>
+            <div className="toto"></div>
             <div>
               <h2>Games soon</h2>
               {this.state.games.map((game) => {
