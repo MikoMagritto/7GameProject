@@ -33,7 +33,7 @@ class Login extends React.Component {
               <h1>& GET INTO THE GAME</h1>
               <h2 className="orange">JOIN OUR COMMUNITY</h2>
             </div>
-            <a href="/login">GET STARTED</a>
+            <a href="/games">GET STARTED</a>
           </div>
         </div>
 
@@ -119,7 +119,7 @@ class Login extends React.Component {
         <div className='section6'>
           <div className='info'>
             <h1>INFO</h1>
-            <svg  className='shape' width="489" height="391" viewBox="0 0 489 391" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className='shape' width="489" height="391" viewBox="0 0 489 391" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 75.0352L443.453 0L489 391L68.0696 357.821L0 75.0352Z" fill="#FABB76" />
             </svg>
             <div className='content'>
@@ -151,7 +151,7 @@ class Login extends React.Component {
                 <input type="subject" name="subject" id="subject" required />
               </div>
               <div className='text'>
-                <textarea placeholder="Enter your message !"id="story" name="story"
+                <textarea placeholder="Enter your message !" id="story" name="story"
                   rows="5" cols="33" />
                 <input className='button' type="submit" value="SEND MESSAGE "></input>
 

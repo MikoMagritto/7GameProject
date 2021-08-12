@@ -42,16 +42,16 @@ export default class EditProfile extends Component {
     this.setState({ [name]: value });
   };
 
-//   deleteProfile = (e) => {
-//     e.preventDefault();
-//     const id = this.props.userInSession._id;
+  //   deleteProfile = (e) => {
+  //     e.preventDefault();
+  //     const id = this.props.userInSession._id;
 
-//     axios.get(`http://localhost:5000/auth/delete/${id}`)
-//     .then(() => {
-//         console.log("utilisateur delete")
-//       this.props.history.push("/");
-//     });
-//   };
+  //     axios.get(`http://localhost:5000/auth/delete/${id}`)
+  //     .then(() => {
+  //         console.log("utilisateur delete")
+  //       this.props.history.push("/");
+  //     });
+  //   };
 
   fileChange = (e) => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -75,7 +75,7 @@ export default class EditProfile extends Component {
   render() {
     return (
       <div>
-        <h1>Sign up</h1>
+        <h1>Edit Profile</h1>
         <form onSubmit={this.handleFormSubmit}>
           {this.state.error && <p className="error">{this.state.error}</p>}
           <p>
@@ -148,8 +148,8 @@ export default class EditProfile extends Component {
             <input type="file" onChange={(e) => this.fileChange(e)} />
           </p>
           <button>Change</button>
-          
-            {/* <button onClick={(e) => this.deleteProfile(e)}>
+
+          {/* <button onClick={(e) => this.deleteProfile(e)}>
               Delete my profile
             </button> */}
         </form>

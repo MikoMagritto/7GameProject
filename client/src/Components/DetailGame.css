@@ -1,0 +1,84 @@
+body {
+  background-color: #FABB76;
+  font-family: "Poppins", sans-serif;
+}
+.parent{
+  position: relative;
+}
+
+.section2{
+  position: absolute;
+  top: 50%; left:50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+.section1 img {
+  width: 100%;
+}
+
+.gameData{
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 2em black;
+}
+
+.whiteBlock{
+  background-color: rgb(255, 255, 255, 0.8) ;
+  padding: 35px;
+  width: 400px;
+}
+
+.btnJoin{
+  margin-top: 200px;
+}
+
+.btnJoin button{
+  width: 300px;
+  color:white;
+  font-size: 30px;
+  background-color: black;
+  height:70px;
+  border-radius: 0px;
+  font-weight: lighter;
+  box-shadow: 0 0 2em black;
+}
+
+.FieldData {
+  background-color: rgb(255, 255, 255, 0.8) ;
+  margin-right: 500px;
+  width: 300px;
+  padding: 35px;
+  height: 300px;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 0 2em black;
+}
+
+.FieldDataEtBtn {
+  display: flex;
+  flex-direction: column;
+}
+
+.listPlayers{
+  display: flex;
+  flex-direction: column;
+}
+.playerName {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.playerName span {
+  margin-left: 10px;
+}
+
+.playerName img {
+  width: 45px;
+}
+
+.shape {  
+opacity: 0.3;
+}
