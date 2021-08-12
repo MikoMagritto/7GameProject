@@ -14,11 +14,8 @@ export default class Profile extends Component {
   };
   componentDidMount() {
     this.listPlayerGame();
-    // this.listOrganisatorGame();
   }
-  // componentDidUpdate(){
-  //   this.props.updateUser();
-  // }
+
   logout = (event) => {
     axios
       .post(`${process.env.REACT_APP_APIURL || ""}/auth/logout`, {})
@@ -31,31 +28,31 @@ export default class Profile extends Component {
     axios
       .get(`${process.env.REACT_APP_APIURL || ""}/games`)
       .then((response) => {
-        let copyGames = response.data.filter((e) =>  e.players.includes(this.props.userInSession._id));
+        let copyGames = response.data.filter((e) =>
+          e.players.includes(this.props.userInSession._id)
+        );
         // console.log("playersGame", copyGames);
-        let organisatorGame = response.data.filter((e) => e.organisator._id === this.props.userInSession._id
+        let organisatorGame = response.data.filter(
+          (e) => e.organisator._id === this.props.userInSession._id
         );
         // console.log("organisatorGame", organisatorGame);
         this.setState({ games: copyGames, gamesOrga: organisatorGame });
       });
   };
 
-  // listOrganisatorGame = () => {
-  //   axios
-  //     .get(`${process.env.REACT_APP_APIURL || ""}/games`)
-  //     .then((response) => {
-  //       let copyGames = [...response.data];
-  //       copyGames.filter(
-  //         (e) => e.organisator._id === this.props.userInSession._id
-  //       );
-  //       console.log("copyGames", copyGames.length);
-  //       this.setState({ gamesOrga: copyGames });
-  //     });
-  // };
+  deleteGame = () => {
+    const { params } = this.props.match;
+    axios
+      .get(`${process.env.REACT_APP_APIURL || ""}/games/delete/${params.id}`)
+      .then(() => {
+        this.props.history.push("/auth");
+      })
+      .catch((err) => console.log(err));
+  };
 
   render() {
     // console.log("games", this.state.games);
-    console.log("UserSession", this.props.userInSession);
+    // console.log("UserSession", this.props.userInSession);
     if (!this.props.userInSession) {
       return "loading";
     }
@@ -118,7 +115,7 @@ export default class Profile extends Component {
                     <Link to={`/games/${game._id}`}>
                       <button>Detail Game</button>
                     </Link>
-                    <button>Delete game</button>
+                    <button onClick={this.deleteGame()}>Delete game</button>
                   </div>
                 );
               })}

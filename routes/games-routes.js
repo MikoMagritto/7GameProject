@@ -177,7 +177,11 @@ gamesRoutes.put("/:id/outPlayer", (req, res, next) => {
 gamesRoutes.get("/delete/:id", (req, res) => {
   const id = req.params.id;
   Game.findByIdAndDelete(id)
-    .then(() => res.redirect("/"))
+    .then(() => {
+      res.redirect("/");
+      console.log("The game is deleted")
+    }
+    )
     .catch((error) => console.log(error));
 });
 

@@ -116,8 +116,13 @@ body {
   position: absolute;
   top: 99%; left:70%;
   transform: translate(-99%, -70%);
+  opacity: 0;
 }
 
 .buttonCard {
   position: relative;
+}
+
+.ListGame:hover .buttonCard button{
+opacity: 1;
 }
