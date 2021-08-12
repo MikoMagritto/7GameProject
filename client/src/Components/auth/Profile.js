@@ -6,6 +6,8 @@ import UserCard from "./UserCard";
 import "./Profile.css";
 import UserInfo from "./UserInfo";
 import Moment from "react-moment";
+import Chat from "./Chat";
+
 
 export default class Profile extends Component {
   state = {
@@ -67,7 +69,9 @@ export default class Profile extends Component {
         <div className="section2">
           <UserCard userInSession={this.props.userInSession} />
           <UserInfo userInSession={this.props.userInSession} />
+          <Chat />
         </div>
+        
         <div className="cta">
           <Link to="/">
             <button className="btn logout" onClick={this.logout}>
@@ -76,9 +80,6 @@ export default class Profile extends Component {
           </Link>
           <Link to="/games/add">
             <button className="btn add">Create a game</button>
-          </Link>
-          <Link to="/auth/edit">
-            <button className="btn add">Modifier son profil</button>
           </Link>
         </div>
         <div>

@@ -42,17 +42,17 @@ class Login extends React.Component {
           <div>
             <h1> 100 </h1>
             <h2>BASKETBALL COURT IN PARIS</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices vestibulum sociis eu consequat ultricies. Erat cras cursus.</p>
+            <p>More than seventy court free of access to practice all around the city.</p>
           </div>
           <div>
             <h1>500</h1>
             <h2>COMMUNITY MEMBERS</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices vestibulum sociis eu consequat ultricies. Erat cras cursus.</p>
+            <p> Hundreds of players from the beginner to the pro to practice and increase your level (or just for fun !).</p>
           </div>
           <div>
             <h1>500</h1>
             <h2>OUR MEMBERS</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices vestibulum sociis eu consequat ultricies. Erat cras cursus.</p>
+            <p>Find your best opponent and try to become the new Kobe Bryant.</p>
           </div>
         </div>
 

@@ -7,12 +7,18 @@ const UserInfo = (props) => {
     <div className="userInfo">
 
       <div className='edit'>
-        <a href="/auth/edit">Edit</a>
+        <Link to="/auth/edit">
+        <img src="https://res.cloudinary.com/dp1lq7mea/image/upload/v1628697956/pen_rccrso.png"></img>
+            <a className="btn add">Edit</a>
+          </Link>
       </div>
       <div className='block1'>
         <div className='mainInformation'>
-          <h1>Main Information</h1>
+          <div className='mainInformation1'>
+            <img src="https://res.cloudinary.com/dp1lq7mea/image/upload/v1628695121/I-removebg-preview_sdrsoi.png"></img>
+            <h1>Main Information</h1>
 
+          </div>
           <div className='info'>
             <div className='block'>
               <h2>Favorite Playground</h2>
@@ -32,10 +38,11 @@ const UserInfo = (props) => {
             </div>
           </div>
         </div>
-     
-        <div className='mainActivity'>
-          <h1>Main Activity</h1>
 
+        <div className='mainActivity'>
+          <div className='mainActivity1'>
+            <img src="https://res.cloudinary.com/dp1lq7mea/image/upload/v1628695121/A-removebg-preview_jcfn52.png"></img>          <h1>Main Activity</h1>
+          </div>
           <div className='info'>
 
             <div className='block'>

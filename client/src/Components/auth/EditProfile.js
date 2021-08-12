@@ -133,9 +133,9 @@ export default class EditProfile extends Component {
               value={this.state.level}
               onChange={(e) => this.handleChange(e)}
             >
-              <option value="Débutant">Débutant</option>
-              <option value="Amateur">Amateur</option>
-              <option value="Confirmé">Confirmé</option>
+              <option value="Débutant">Novice</option>
+              <option value="Amateur">Beginner</option>
+              <option value="Confirmé">Intermediate</option>
               <option value="ProA">ProA</option>
               <option value="ProB">ProB</option>
             </select>
