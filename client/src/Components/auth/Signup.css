@@ -1,8 +1,63 @@
-.form label {
-	display: block;
-	margin-bottom: 10px;
+
+/*BLOC 1*/
+.green {
+display:flex;
+margin: 0;
+object-fit: cover; 
+padding: 0px 0px;
+margin: 0;
+background-image: url("https://res.cloudinary.com/dro81vxlb/image/upload/v1628789356/terrainsignup_xroefx.png");
+background-repeat: no-repeat;
+background-position: right;
+
 }
 
-.form {
-	color: saddlebrown;
+.log {
+background-color: purple;
+color: rgb(255, 255, 255);
+border-radius: 10px;
+width: 27%;
+
+}
+
+.signup{
+text-align: center;
+margin: 20em ;
+
+
+
+}
+
+.signup form{
+margin-top: 2em;
+display:flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+
+}
+
+.sousbloc3{
+  
+
+}
+
+.signup label{
+display:flex;
+flex-direction: column;
+color:#cfa5a1;
+text-align: start;
+
+}
+
+
+@media (min-width: 1225px) {
+
+.signup{
+  margin-top: 9em
+}
+
+.signup input{ 
+  width: 25vw
+}
 }
