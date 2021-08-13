@@ -7,14 +7,12 @@ import LoginUser from "./Components/auth/Login";
 import NavBar from "./Components/NavBar";
 import Profile from "./Components/auth/Profile";
 import Home from "./Components/Home";
-import Concept from "./Components/Concept";
 import CreateGame from "./Components/CreateGame";
 import ListGame from "./Components/ListGame";
 import DetailGame from "./Components/DetailGame";
 import EditProfile from "./Components/auth/EditProfile";
-import Solution from "./Components/Solution";
-import Team from "./Components/Team";
-import Contact from "./Components/Contact";
+
+
 
 
 class App extends Component {
@@ -111,10 +109,8 @@ class App extends Component {
           />
 
           <Route exact path="/" component={Home} />
-          <Route exact path="/concept" component={Concept} />
-          <Route exact path="/solution" component={Solution} />
-          <Route exact path="/team" component={Team} />
-          <Route exact path="/contact" component={Contact} />
+        
+      
         </Switch>
 
 

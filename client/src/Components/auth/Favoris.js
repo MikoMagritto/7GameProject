@@ -5,7 +5,7 @@ import "./Favoris.css";
 const Favoris = (props) => {
   return (
     <div id="favoris">
-      <h2> Favoris</h2>
+      <h2> Favorite</h2>
       <div className='playgrounds'>
         <div className='playground'>
           <img src="https://res.cloudinary.com/dp1lq7mea/image/upload/v1627581101/St_Paul_nzpqdz.jpg"></img>

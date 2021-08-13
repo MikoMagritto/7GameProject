@@ -9,7 +9,7 @@ const SevenGameCalendar = (props) => {
   return (
     <div id="calendar">
       <h2>Calendar</h2>
-      <div>
+      <div className='container'>
         <Calendar
           onChange={onChange}
           value={value}

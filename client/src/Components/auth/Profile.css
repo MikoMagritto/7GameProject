@@ -11,7 +11,24 @@
   font-size: 50px;
 }
 
-.profile .section2, .profile .section3 {
+.profile .section1 .buttCreateLogout {
+  display:flex; 
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.profile .section1 button {
+  background-color: #673389;
+  color: white;
+  font-size: 18px;
+  border-radius: 80px;
+  border: 2px solid #673389;
+  width: 187px;
+  height: 52px;
+  margin: 10px;
+}
+
+.profile .section1, .profile .section2, .profile .section3 {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,4 +38,3 @@
 .profile .section2>div, .profile .section3>div {
   margin: 20px;
 }
-

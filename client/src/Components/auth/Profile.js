@@ -69,6 +69,16 @@ export default class Profile extends Component {
       <div className="profile">
         <div className="section1">
           <h1> Hello {this.props.userInSession.username} !</h1>
+          <div className="buttCreateLogout">
+            <Link to="/">
+              <button className="btnlogout" onClick={this.logout}>
+                Logout
+              </button>
+            </Link>
+            <Link to="/games/add">
+              <button className="btnadd">Create a game</button>
+            </Link>
+          </div>
         </div>
         <div className="section2">
           <UserCard userInSession={this.props.userInSession} />
@@ -134,16 +144,7 @@ export default class Profile extends Component {
                 })}
               </div>
             </div>
-            <div className="buttCreateLogout">
-              <Link to="/">
-                <button className="btnlogout" onClick={this.logout}>
-                  Logout
-            </button>
-              </Link>
-              <Link to="/games/add">
-                <button className="btnadd">Create a game</button>
-              </Link>
-            </div>
+
           </div>
         </div>
       </div>

@@ -1,4 +1,26 @@
 #calendar {
-width: 307px;
-height: 352px;
+color: white;
+}
+#calendar h2 {
+  margin: 2px 11px;
+  font-size: 25px;
+  font-weight: 400;
+}
+#calendar .container {
+  width: 307px;
+  height: 320px;
+  border: 2px solid #673389;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 11px 4px ;
+  
+}
+#calendar .react-calendar button {
+  border:none;
+  color: gray;
+  margin:2px;
+  width:30px;
+  height: 27px;
 }
