@@ -6,6 +6,7 @@ const Calendar = (props) => {
   return (
     <div id="calendar">
       <h2>Calendar</h2>
+      
     </div>
   );
 }
