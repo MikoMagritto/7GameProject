@@ -4,11 +4,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
 import "./Profile.css";
-//import "./ProfileCSSGame.css"
+import "./ProfileCSSGame.css"
 import UserInfo from "./UserInfo";
 import Moment from "react-moment";
 import Chat from "./Chat";
-import Calendar from "./Calendar";
+import SevenGameCalendar from "./SevenGameCalendar";
 import NextGame from "./NextGame";
 import Favoris from "./Favoris";
 
@@ -76,7 +76,7 @@ export default class Profile extends Component {
           <Chat />
         </div>
         <div className="section3">
-          <Calendar />
+          <SevenGameCalendar />
           <Favoris />
         </div>
         <div>
