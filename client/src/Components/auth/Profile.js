@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
 import "./Profile.css";
+import "./ProfileCSSGame.css"
 import UserInfo from "./UserInfo";
 import Moment from "react-moment";
 import Chat from "./Chat";
@@ -75,62 +76,73 @@ export default class Profile extends Component {
           <Chat />
         </div>
         <div className="section3">
-        <Calendar />
-        <NextGame />
-        <Favoris />
-        </div>
-
-        <div className="cta">
-          <Link to="/">
-            <button className="btn logout" onClick={this.logout}>
-              Logout
-            </button>
-          </Link>
-          <Link to="/games/add">
-            <button className="btn add">Create a game</button>
-          </Link>
+          <Calendar />
+          <Favoris />
         </div>
         <div>
           <div>
-            <div className="toto"></div>
             <div>
-              <h2>Games soon</h2>
-              {this.state.games.map((game) => {
-                return (
-                  <div>
-                    <h2>{game.name}</h2>
-                    <div>
-                      <Moment format="D MMM YYYY" withTitle>
-                        {game.date}
-                      </Moment>
+              <h2 className="NextGameST">Next games to play</h2>
+              <div className="ulGames">
+                {this.state.games.map((game) => {
+                  return (
+                    <div className="profileGame">
+                      <h2>{game.name}</h2>
+                      <div className="infoProfileGame">
+                        <div>
+                          <Moment format="D MMM YYYY" withTitle>
+                            {game.date}
+                          </Moment>
+                        </div>
+                        <div>{game.hour}</div>
+                        <div>{game.field.name}</div>
+                        <div className="usernameOrga">By {game.organisator.username}</div>
+                      </div>
+                      <Link to={`/games/${game._id}`}>
+                        <button>Detail Game</button>
+                      </Link>
                     </div>
-                    <div>{game.hour}</div>
-                    <div>{game.field.name}</div>
-                    <div>{game.organisator.username}</div>
-                    <Link to={`/games/${game._id}`}>
-                      <button>Detail Game</button>
-                    </Link>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
             <div>
-              <h2>Leader games</h2>
-              {this.state.gamesOrga.map((game) => {
-                return (
-                  <div>
-                    <h2>{game.name}</h2>
-                    <div>{game.date}</div>
-                    <div>{game.hour}</div>
-                    <div>{game.field.name}</div>
-                    <div>{game.organisator.username}</div>
-                    <Link to={`/games/${game._id}`}>
-                      <button>Detail Game</button>
-                    </Link>
-                    <button onClick={() => this.deleteGame(game._id)}>Delete game</button>
-                  </div>
-                );
-              })}
+              <h2 className="MyGames">My Games</h2>
+              <div className="ulGames">
+                {this.state.gamesOrga.map((game) => {
+                  return (
+                    <div className="profileGameOrga">
+                      <h2>{game.name}</h2>
+                      <div className="infoProfileGameOrga">
+                        <div>
+                          <Moment format="D MMM YYYY" withTitle>
+                            {game.date}
+                          </Moment>
+                        </div>
+                        <div>{game.hour}</div>
+                        <div>{game.field.name}</div>
+                        <div> By {game.organisator.username}</div>
+                        <div className="btnDetailDelete">
+                          <Link to={`/games/${game._id}`}>
+                            <button>Detail Game</button>
+                          </Link>
+                          <button onClick={() => this.deleteGame(game._id)}>Delete game</button>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="cta">
+              <Link to="/">
+                <button className="btn logout" onClick={this.logout}>
+                  Logout
+            </button>
+              </Link>
+              <Link to="/games/add">
+                <button className="btn add">Create a game</button>
+              </Link>
             </div>
           </div>
         </div>
