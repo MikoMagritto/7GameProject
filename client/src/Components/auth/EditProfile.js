@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { uploadFile } from "./auth-service";
 import { Link } from "react-router-dom";
+import "./EditProfile.css"
 
 export default class EditProfile extends Component {
   state = {
@@ -74,9 +75,9 @@ export default class EditProfile extends Component {
 
   render() {
     return (
-      <div>
+      <div className="EditProfile">
         <h1>Edit Profile</h1>
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit} className="formCG">
           {this.state.error && <p className="error">{this.state.error}</p>}
           <p>
             <label>

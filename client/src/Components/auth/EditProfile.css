@@ -1,0 +1,11 @@
+.EditProfile{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+}
+
+
+.EditProfile h1 {
+  margin-right: 60px;
+}
