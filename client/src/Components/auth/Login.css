@@ -1,3 +1,7 @@
+*{
+  color: black;
+}
+
 /*SECTION 1*/
 .green {
   color: black;
@@ -59,7 +63,7 @@ background: #673389;
 border-radius: 80px;
 font-size: 22px;
 font-style: bold;
-margin-bottom: 2em;
+/* margin-bottom: 2em; */
 
 }
 
