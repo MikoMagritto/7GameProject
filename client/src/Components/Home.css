@@ -62,10 +62,12 @@
   background-color: #292222;
   color: white;
   padding: 0 20px;
+  height: 300px;
 }
 
 .home .section2 div {
   padding: 40px 100px;
+  color: white;
 }
 
 .home .section2 h1 {
@@ -73,11 +75,13 @@
   font-size: 40px;
   font-weight: 650;
   letter-spacing: .3rem;
+  color: white;
 }
 
 .home .section2 h2 {
   height: 75px;
   font-weight: 500;
+  color: white;
 }
 
 /*SECTION 3*/
@@ -117,6 +121,7 @@
   font-weight: 650;
   letter-spacing: .3rem;
   padding-bottom: 40px;
+  color: white;
 }
 
 .home .section4 .container {
@@ -124,6 +129,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
+
 }
 
 .home .section4 div {
@@ -133,16 +139,19 @@
 .home .section4 h2 {
   font-size: 25px;
   font-weight: 500;
+  color: white;
 }
 
 .home .section4 h3 {
   font-weight: 400;
   font-size: 20px;
+  color: white;
 }
 
 .home .section4 p {
   font-weight: 200;
   font-size: 15px;
+  color: white;
 }
 
 .home .section4 .container img {
