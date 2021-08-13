@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
 import "./Profile.css";
-import "./ProfileCSSGame.css"
+//import "./ProfileCSSGame.css"
 import UserInfo from "./UserInfo";
 import Moment from "react-moment";
 import Chat from "./Chat";
