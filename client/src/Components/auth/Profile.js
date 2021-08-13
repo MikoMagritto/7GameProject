@@ -134,14 +134,14 @@ export default class Profile extends Component {
                 })}
               </div>
             </div>
-            <div className="cta">
+            <div className="buttCreateLogout">
               <Link to="/">
-                <button className="btn logout" onClick={this.logout}>
+                <button className="btnlogout" onClick={this.logout}>
                   Logout
             </button>
               </Link>
               <Link to="/games/add">
-                <button className="btn add">Create a game</button>
+                <button className="btnadd">Create a game</button>
               </Link>
             </div>
           </div>

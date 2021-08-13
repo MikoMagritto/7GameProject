@@ -98,3 +98,24 @@ width: 150px;
   margin: 2px;
   margin-right: 25px;
   }
+
+  .buttCreateLogout {
+    display: flex;
+    flex-direction: row;
+    padding: 200px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .buttCreateLogout button {
+    width: 400px;
+    height: 100px;
+    margin-left:200px ;
+    margin-right: 200px;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    border: 1px solid #ca89f5 ;
+    box-shadow: 0 0 2em #7bd5ff;
+  }
+
