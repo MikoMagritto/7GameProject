@@ -9,16 +9,67 @@
 }
 
 .item {
-  display: inline-block;
-  width: 25%;
-  min-width: 200px;
-  border-style: solid;
-  border-color: grey;
-  border-width: 1px;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 5px;
-  box-shadow: 2px 2px 20px 1px grey;
-  animation-duration: 0.5s;
-  animation-name: enter;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+
+}
+
+.formCG{
+  display: flex;
+  flex-direction: column;
+  height:830px;
+  margin-top: 50px;
+  margin-right: 0px;
+  padding: 50px;
+  width: 500px;
+  font-size: 25px;
+  font-weight: lighter;
+  box-shadow: 0 0 2em black;
+}
+
+.imgCreateGame img {
+  width: 1000px;
+  margin-top: 50px;
+  margin-right: 50px;
+  box-shadow: 0 0 2em black;
+}
+
+.inputFormCG{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputFormCG label {
+  margin-bottom: 10px;
+}
+
+.inputFormCG input {
+  height: 40px;
+}
+.inputFormCG select {
+  height: 40px;
+}
+
+.levelTypeGame {
+display: flex;
+justify-content: space-between;
+padding: 0;
+}
+
+.levelTypeGame select {
+  height: 40px;
+  width: 120px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btnCreateGame {
+  font-size: 15px;
+  height: 80px;
+  margin-top: 30px;
+  background-color: black;
+  color: white;
+  width: 200px;
 }

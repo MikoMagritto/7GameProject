@@ -98,7 +98,7 @@ export default class DetailGame extends Component {
                       onClick={(e) => this.deletePlayer(e)}
                       value={this.props.userInSession._id}
                     >
-                      Se désinscrire
+                      Get out
                     </button>
                   ) : (
                     <button
