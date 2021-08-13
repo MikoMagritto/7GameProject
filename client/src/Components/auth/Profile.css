@@ -5,9 +5,10 @@
 }
 
 .profile .section1 h1 {
-  font-weight: 400;
-  font-size: 30px;
   color: white;
+  align-items: center;
+  width: 100%;
+  font-size: 100px;
 }
 
 .profile .section2, .profile .section3 {

@@ -3,27 +3,24 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = (props) => {
-    return (
-      <div className="navBar">
-        {props.userInSession ? (
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/auth">My Profile</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/games">Find a game</Link>
-            </li>
-            <li>
-              <Link to="/games/add">Create a game</Link>
-            </li>
-          </ul>
-        ) : (
+  return (
+    <div className="navBar">
+      {props.userInSession ? (
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/auth">My Profile</Link>
+          </li>
+          <li>
+            <Link to="/games">Find a game</Link>
+          </li>
+          <li>
+            <Link to="/games/add">Create a game</Link>
+          </li>
+        </ul>
+      ) : (
           <ul>
             <li>
               <Link to="/signup"> Sign Up</Link>
@@ -36,8 +33,8 @@ const NavBar = (props) => {
             </li>
           </ul>
         )}
-      </div>
-    );
-  }
+    </div>
+  );
+}
 
 export default NavBar;
