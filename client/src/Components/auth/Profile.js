@@ -7,6 +7,9 @@ import "./Profile.css";
 import UserInfo from "./UserInfo";
 import Moment from "react-moment";
 import Chat from "./Chat";
+import Calendar from "./Calendar";
+import NextGame from "./NextGame";
+import Favoris from "./Favoris";
 
 
 export default class Profile extends Component {
@@ -71,7 +74,12 @@ export default class Profile extends Component {
           <UserInfo userInSession={this.props.userInSession} />
           <Chat />
         </div>
-        
+        <div className="section3">
+        <Calendar />
+        <NextGame />
+        <Favoris />
+        </div>
+
         <div className="cta">
           <Link to="/">
             <button className="btn logout" onClick={this.logout}>

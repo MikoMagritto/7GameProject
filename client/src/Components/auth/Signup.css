@@ -1,4 +1,5 @@
 
+
 /*BLOC 1*/
 .green {
 display:flex;
@@ -12,7 +13,7 @@ background-position: right;
 
 }
 
-.log {
+.green .log {
 background-color: purple;
 color: rgb(255, 255, 255);
 border-radius: 10px;
@@ -20,7 +21,7 @@ width: 27%;
 
 }
 
-.signup{
+.green .signup{
 text-align: center;
 margin: 20em ;
 
@@ -28,7 +29,7 @@ margin: 20em ;
 
 }
 
-.signup form{
+.green .signup form{
 margin-top: 2em;
 display:flex;
 flex-direction: column;
@@ -37,12 +38,9 @@ align-items: center;
 
 }
 
-.sousbloc3{
-  
 
-}
 
-.signup label{
+.green .signup label{
 display:flex;
 flex-direction: column;
 color:#cfa5a1;
@@ -53,11 +51,11 @@ text-align: start;
 
 @media (min-width: 1225px) {
 
-.signup{
+.green .signup{
   margin-top: 9em
 }
 
-.signup input{ 
+.green .signup input{ 
   width: 25vw
 }
 }

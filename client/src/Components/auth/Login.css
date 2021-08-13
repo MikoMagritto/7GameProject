@@ -1,10 +1,6 @@
-* {
-color: black;
- 
-}
-
 /*SECTION 1*/
 .green {
+  color: black;
 background: #f1f1f1;
 margin: 0;
 background-image: url("https://res.cloudinary.com/dro81vxlb/image/upload/v1628698874/terr_cwpsq2.png");
@@ -14,25 +10,25 @@ padding: 0px 0px;
 
 }
 
-.logo{
+.green .logo{
 width: 500px;
 
 }
 
-.login{
+.green .login{
 text-align: center;
 margin: 20em ;
 
 }
 
-.login form{
+.green .login form{
 align-items: center;
 display:flex;
 flex-direction: column; 
   
 }
 
-.login input{ 
+.green .login input{ 
 padding:10px 13px;
 width: 80vw;
 border-bottom:1px solid rgb(14, 13, 13);
@@ -42,7 +38,7 @@ margin-top:0.3em 0
 
 }
 
-.login label{
+.green .login label{
 display:flex;
 flex-direction: column;
 color:#e7e1e1;
@@ -51,7 +47,7 @@ font: bold;
   
 }
 
-.log {
+.green .log {
 background-color: purple;
 color: rgb(255, 255, 255);
 border-radius: 10px;
@@ -67,7 +63,7 @@ margin-bottom: 2em;
 
 }
 
-.log2 {
+.green .log2 {
 background-color: purple;
 color: rgb(255, 255, 255);
 border-radius: 10px;  
@@ -83,7 +79,7 @@ font-style: bold;
 }
 
 /*FORGOT PASSWORD*/
-.forgot {
+.green .forgot {
 font-style: normal;
 font-weight: normal;
 font-size: 15px;
@@ -109,11 +105,11 @@ background-image:
 
 
 @media (min-width: 1225px) {
-  .login{
+  .green .login{
     margin-top: 9em
     
   }
-  .login input{
+  .green .login input{
     width: 25vw
   }
 }
