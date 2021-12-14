@@ -9,7 +9,7 @@ export default service;
 
 
 function signup(username, password, email, height, age, level,avatar, role) {
-    console.log("avatar",avatar);
+    //console.log("level is : ",level);
     return service.post('/signup', {
             username,
             password,

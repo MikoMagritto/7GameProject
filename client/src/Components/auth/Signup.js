@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { signup } from './auth-service';
+import Select from 'react-select'
 import { uploadFile } from './auth-service';
 import { saveNewThing } from './auth-service';
 import './Signup.css'
@@ -13,7 +14,7 @@ export default class Signup extends React.Component {
     email: "",
     height: "",
     age: "",
-    level: "",
+    level: "debutant",
     avatar: "",
   }
 
@@ -45,7 +46,9 @@ export default class Signup extends React.Component {
   }
 
   handleChange = (event) => {
+    console.log(event)
     const { name, value } = event.target;
+    console.log(name,value)
     this.setState({
       [name]: value
     })
@@ -72,6 +75,13 @@ export default class Signup extends React.Component {
   };
 
   render() {
+    const listLevel = [
+      { value: 'debutant', label: 'Débutant' },
+      { value: 'Amateur', label: 'Amateur' },
+      { value: 'confirme', label: 'Confirmé' },
+      { value: 'ProA', label: 'ProA' },
+      { value: 'ProB', label: 'ProB' }
+    ]   
     return (
       <div className="green">
       <div className='signup'>
@@ -85,7 +95,7 @@ export default class Signup extends React.Component {
             </p>)}
           <p>
             <label>
-              <em>Username</em>   </label>
+              <em>Username</em></label>
             <input type="text" name="username" classnName="sousbloc1" value={this.state.username} onChange={(e) => this.handleChange(e)} />
 
           </p>
@@ -112,18 +122,17 @@ export default class Signup extends React.Component {
               <em>Age</em>  </label>
             <input type="number" name="age" classnName="sousbloc2" value={this.state.age} onChange={(e) => this.handleChange(e)} />
           </p>
-
-          <p>
-            <label >
-              <em>Level</em>      </label>
-            <select name="level" classnName="sousbloc3" value={this.state.level} onChange={(e) => this.handleChange(e)}>
-              <option value="Débutant">Débutant</option>
-              <option value="Amateur">Amateur</option>
-              <option value="Confirmé">Confirmé</option>
-              <option value="ProA">ProA</option>
-              <option value="ProB">ProB</option>
-            </select>
-          </p>
+              
+          {/*<Select options={listLevel} name='level' />*/}
+              
+              
+                <select name="level" onChange={(e) => this.handleChange(e)}>
+                {/* <option value=""></option> */}
+                {listLevel.map((level) => {
+                  return <option value={level.value}>{level.label}</option>;
+                })}
+              </select>
+         
 
           <p>
             <label>

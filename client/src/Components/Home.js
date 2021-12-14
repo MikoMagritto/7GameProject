@@ -25,16 +25,16 @@ class Login extends React.Component {
   render() {
     return (
       <div className='home'>
-        <div className="toto"></div>
         <div className='section1'>
           <div className='container'>
             <div className="text">
               <h1 className="orange">FIND</h1>
               <h1 className="orange">BASKETBALL COURT</h1>
-              <h1>& GET INTO THE GAME</h1>
+              <h1> <span>&</span> GET INTO THE GAME</h1>
               <h2 className="orange">JOIN OUR COMMUNITY</h2>
+              <a href="/games">GET STARTED</a>
             </div>
-            <a href="/games">GET STARTED</a>
+            
           </div>
         </div>
 
@@ -64,6 +64,7 @@ class Login extends React.Component {
             <p>During the year the teams SG will organize big tournaments by ranks. </p>
             <p>Lot of gifts for winners. </p>
           </div>
+          <img src="https://res.cloudinary.com/dp1lq7mea/image/upload/v1628191311/oleksii-s-O2kqxbix4Mw-unsplash_zady7o.jpg"/>
         </div>
 
 

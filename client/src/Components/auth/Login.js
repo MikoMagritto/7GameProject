@@ -68,7 +68,8 @@ export default class LoginUser extends Component {
 
   render() {
     return (
-      <div className="green">
+      <div className="loginPage">
+        {/*<img src="https://res.cloudinary.com/dro81vxlb/image/upload/v1628698874/terr_cwpsq2.png" className="image"/>*/}
       <div className="login">
         <img src='https://res.cloudinary.com/dro81vxlb/image/upload/v1628768443/logo_vf_mwvddj.png' alt="" className="logo" />
     
@@ -77,15 +78,13 @@ export default class LoginUser extends Component {
           <h1>SIGN IN</h1>
           <p>
             <label>
-              <em>Username</em>
-              <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
+              <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username"/>
             </label>
           </p>
 
           <p>
             <label>
-              <em>Password</em>
-              <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+              <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password"/>
                 <p className="forgot">Forgot password</p>
             </label>
           </p>

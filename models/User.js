@@ -29,7 +29,7 @@ const userSchema = new Schema(
     },
     level :{
       type: String,
-      enum : ["Débutant","Amateur","Confirmé","ProA","ProB"],
+      enum : ["debutant","Amateur","confirme","ProA","ProB"],
     },
     avatar :{
       type: String,
