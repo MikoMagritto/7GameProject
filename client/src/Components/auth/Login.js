@@ -4,7 +4,6 @@ import { login } from "./auth-service";
 // import { Link, Redirect } from "react-router-dom";
 import "./Login.css";
 
-
 export default class LoginUser extends Component {
   state = {
     username: "",
@@ -23,12 +22,13 @@ export default class LoginUser extends Component {
     const password = this.state.password;
 
     login(username, password)
-    .then((response) => {
-          // console.log(response);
-          this.setState({ username: "", password: "" });
-          this.props.updateUser(response);
-          this.props.history.push("/auth");
-        }).catch((err) => console.log(err));
+      .then((response) => {
+        // console.log(response);
+        this.setState({ username: "", password: "" });
+        this.props.updateUser(response);
+        this.props.history.push("/auth");
+      })
+      .catch((err) => console.log(err));
     // axios
     //   .post(
     //     "http://localhost:5000/auth/login",
@@ -69,33 +69,56 @@ export default class LoginUser extends Component {
   render() {
     return (
       <div className="loginPage">
-        {/*<img src="https://res.cloudinary.com/dro81vxlb/image/upload/v1628698874/terr_cwpsq2.png" className="image"/>*/}
-      <div className="login">
-        <img src='https://res.cloudinary.com/dro81vxlb/image/upload/v1628768443/logo_vf_mwvddj.png' alt="" className="logo" />
-    
-        <form onSubmit={this.handleSubmit}>
-          {this.state.error && <p className="error">{this.state.error}</p>}
-          <h1>SIGN IN</h1>
-          <p>
-            <label>
-              <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="Username"/>
-            </label>
-          </p>
+        <img
+          src="https://res.cloudinary.com/la-chaussette-sale/image/upload/v1639562572/photo-1562537246-b1128adc498b_hloxpq.jpg"
+          className="image"
+        />
+        <div className="login">
+          <img
+            src="https://res.cloudinary.com/dro81vxlb/image/upload/v1628768443/logo_vf_mwvddj.png"
+            alt=""
+            className="logo"
+          />
 
-          <p>
-            <label>
-              <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password"/>
+          <form onSubmit={this.handleSubmit}>
+            {this.state.error && <p className="error">{this.state.error}</p>}
+            <h1>SIGN IN</h1>
+            <p>
+              <label>
+                <input
+                  type="text"
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.handleChange}
+                  placeholder="Username"
+                />
+              </label>
+            </p>
+
+            <p>
+              <label>
+                <input
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                  placeholder="Password"
+                />
                 <p className="forgot">Forgot password</p>
-            </label>
-          </p>
-
-          <button className="log" type="submit">Login</button>
-          {/* <p>Don't have an account</p> */}
-          <a href="/signup" className="log2" type="submit">Sign up</a>
-        </form>
+              </label>
+            </p>
+            <div className="button-alink">
+              <button className="log" type="submit">
+                Login
+              </button>
+              {/* <p>Don't have an account</p> */}
+              <a href="/signup" className="signUp-link" type="submit">
+                Sign up
+              </a>
+            </div>
+          </form>
+        </div>
       </div>
-      </div>
-      
     );
   }
 }

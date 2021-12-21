@@ -9,9 +9,9 @@ export default class CreateGame extends Component {
     name: "",
     date: "",
     hour: "",
-    mood: "",
+    mood: "Fun",
     numPlayers: "",
-    levelGame: "",
+    levelGame: "Débutant",
     typeGame: "",
   };
 
@@ -81,7 +81,7 @@ export default class CreateGame extends Component {
             <div className="inputFormCG">
               <label> Field </label>
               <select name="field" onChange={(e) => this.handleChange(e)}>
-
+                <option value="">Choose field</option>;
                 {this.state.fields.map((field) => {
                   return <option value={field._id}>{field.name}</option>;
                 })}
@@ -152,6 +152,7 @@ export default class CreateGame extends Component {
                 value={this.state.typeGame}
                 onChange={(e) => this.handleChange(e)}
               >
+                <option value="">Which match</option>
                 <option value="1x1">1x1</option>
                 <option value="2x2">2x2</option>
                 <option value="3x3">3x3</option>

@@ -1,61 +1,51 @@
-
-
-/*BLOC 1*/
-.green {
-display:flex;
-margin: 0;
-object-fit: cover; 
-padding: 0px 0px;
-margin: 0;
-bbackground-image: url("https://res.cloudinary.com/dro81vxlb/image/upload/v1628789356/terrainsignup_xroefx.png");
-background-repeat: no-repeat;
-background-position: right;
-
+.signUp {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
 }
 
-.green .log {
-background-color: purple;
-color: rgb(255, 255, 255);
-border-radius: 10px;
-width: 27%;
-
-}
-
-.green .signup{
-text-align: center;
-margin: 20em ;
-
+.signUp .imgSignup {
+  width: 50%;
 
 
 }
 
-.green .signup form{
-margin-top: 2em;
-display:flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
+.form-signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.form-signup img {
+ width: 50%;
+}
 
+.form-signup form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 
-
-.green .signup label{
-display:flex;
-flex-direction: column;
-color:#cfa5a1;
-text-align: start;
-
+.form-signup form input {
+  height: 50px;
+  width: 500px;
+  font-size: 25px;
+  padding: 15px;
+  margin-top: 15px;
 }
 
-
-@media (min-width: 1225px) {
-
-.green .signup{
-  margin-top: 9em
+.form-signup form select {
+  height: 50px;
+  width: 500px;
+  font-size: 25px;
+  margin-top: 15px;
 }
-
-.green .signup input{ 
-  width: 25vw
-}
+.form-signup form .create-my-account {
+  height: 50px;
+  width: 500px;
+  font-size: 25px;
+  margin-top: 15px;
 }

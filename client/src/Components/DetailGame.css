@@ -14,6 +14,8 @@ body {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-between;
+  background-color: rgb(255, 255, 255, 0.8) ;
+
 }
 .partie1 img {
   width: 100%;
@@ -23,11 +25,11 @@ body {
   margin-left: 0;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 2em black;
+  bbox-shadow: 0 0 2em black;
 }
 
 .whiteBlock{
-  background-color: rgb(255, 255, 255, 0.8) ;
+  bbackground-color: rgb(255, 255, 255, 0.8) ;
   padding: 35px;
   width: 400px;
 }
@@ -44,17 +46,17 @@ body {
   height:70px;
   border-radius: 0px;
   font-weight: lighter;
-  box-shadow: 0 0 2em black;
+  bbox-shadow: 0 0 2em black;
 }
 
 .FieldData {
-  background-color: rgb(255, 255, 255, 0.8) ;
+  bbackground-color: rgb(255, 255, 255, 0.8) ;
   margin-right: 500px;
   width: 300px;
   padding: 35px;
   height: 300px;
   font-family: "Poppins", sans-serif;
-  box-shadow: 0 0 2em black;
+  bbox-shadow: 0 0 2em black;
 }
 
 .FieldDataEtBtn {

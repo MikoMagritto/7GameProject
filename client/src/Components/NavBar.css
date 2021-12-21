@@ -19,4 +19,6 @@
 .navBar li a{
     text-decoration: none;
     color : #ffffff;
+    font-size: 30px;
+    text-decoration-style: solid;
 }

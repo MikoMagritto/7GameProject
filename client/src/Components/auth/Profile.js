@@ -41,7 +41,7 @@ export default class Profile extends Component {
         let organisatorGame = response.data.filter(
           (e) => e.organisator._id === this.props.userInSession._id
         );
-        console.log("organisatorGame", organisatorGame);
+        //console.log("organisatorGame", organisatorGame);
         this.setState({ games: copyGames, gamesOrga: organisatorGame });
       });
   };

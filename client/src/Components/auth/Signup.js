@@ -35,7 +35,7 @@ export default class Signup extends React.Component {
     signup(username, password, email, height, age, level, avatar)
 
       .then(response => {
-        console.log("response client :", response);
+        //console.log("response client :", response);
         this.setState({ username: "", password: "", email: "", height: "", age: "", level: "", avatar: "" });
         this.props.addUser(response);
         this.props.history.push("/auth");
@@ -46,9 +46,9 @@ export default class Signup extends React.Component {
   }
 
   handleChange = (event) => {
-    console.log(event)
+    //console.log(event)
     const { name, value } = event.target;
-    console.log(name,value)
+    //console.log(name,value)
     this.setState({
       [name]: value
     })
@@ -83,65 +83,52 @@ export default class Signup extends React.Component {
       { value: 'ProB', label: 'ProB' }
     ]   
     return (
-      <div className="green">
-      <div className='signup'>
+      <div className="signUp">
+        <img className="imgSignup" src="https://res.cloudinary.com/la-chaussette-sale/image/upload/v1639498653/photo-1542221672070-2068b796fda3_gtihan.jpg" />
+        <div className='form-signup'>
       
-      <img src='https://res.cloudinary.com/dro81vxlb/image/upload/v1628768443/logo_vf_mwvddj.png' alt="" className="logo"/>
-        <h1>SIGN UP</h1>
-        <form onSubmit={this.handleFormSubmit}>
+          <img src='https://res.cloudinary.com/dro81vxlb/image/upload/v1628768443/logo_vf_mwvddj.png' alt="" className="logo"/>
+          <h1>Sign up</h1>
+          <form onSubmit={this.handleFormSubmit}>
           {this.state.error && (
             <p className="error">
               {this.state.error}
             </p>)}
-          <p>
-            <label>
-              <em>Username</em></label>
-            <input type="text" name="username" classnName="sousbloc1" value={this.state.username} onChange={(e) => this.handleChange(e)} />
 
-          </p>
-          <p>
-            <label>
-              <em>Password</em> </label>
-            <input type="password" name="password" classnName="sousbloc3" value={this.state.password} onChange={(e) => this.handleChange(e)} />
+            <input type="text" name="username"  value={this.state.username} onChange={(e) => this.handleChange(e)} placeholder="Username" />
+          
+          
+            <input type="password" name="password"  value={this.state.password} onChange={(e) => this.handleChange(e)}  placeholder="Password"/>
+        
+            
+            <input type="text" name="email"  value={this.state.email} onChange={(e) => this.handleChange(e)} placeholder="Email" />
 
-          </p>
-          <p>
-            <label>
-              <em>Email</em>      </label>
-            <input type="text" name="email" classnName="sousbloc1" value={this.state.email} onChange={(e) => this.handleChange(e)} />
+          
+            <input type="number" name="height"  value={this.state.height} onChange={(e) => this.handleChange(e)} placeholder="Height"/>
+          
 
-          </p>
-          <p>
-            <label>
-              <em>Height</em>     </label>
-            <input type="number" name="height" classnName="sousbloc2" value={this.state.height} onChange={(e) => this.handleChange(e)} />
-          </p>
-
-          <p>
-            <label>
-              <em>Age</em>  </label>
-            <input type="number" name="age" classnName="sousbloc2" value={this.state.age} onChange={(e) => this.handleChange(e)} />
-          </p>
+            <input type="number" name="age"  value={this.state.age} onChange={(e) => this.handleChange(e)} placeholder="Age"/>
+          
               
           {/*<Select options={listLevel} name='level' />*/}
               
               
-                <select name="level" onChange={(e) => this.handleChange(e)}>
+            <select name="level" onChange={(e) => this.handleChange(e)}>
                 {/* <option value=""></option> */}
                 {listLevel.map((level) => {
                   return <option value={level.value}>{level.label}</option>;
                 })}
-              </select>
+            </select>
          
 
-          <p>
-            <label>
-              <em>Avatar</em>     </label>
-            <input type="file" onChange={(e) => this.fileChange(e)} />
-          </p>
-          <button className="log" type="submit">I create my account</button>
-        </form>
-      </div>
+        
+            
+              
+            <input type="file" onChange={(e) => this.fileChange(e)}  placeholder="Profile Pic"/>
+          
+          <button className="create-my-account" type="submit">I create my account</button>
+          </form>
+        </div>
       </div>
 
     

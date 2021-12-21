@@ -3,9 +3,57 @@
 }
 
 .logo{
-  width:200px;
+  width: 400px;
 }
 
 .loginPage {
   background-color: white;
+  display: flex;
+}
+
+.loginPage .image {
+  width: 50%;
+}
+
+.loginPage .login {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  mmargin-bottom: 1000px;
+}
+
+.loginPage .login form {
+  margin-bottom: 500px;
+  padding: 20px;
+  height: 450px
+}
+
+.loginPage input {
+  height: 50px;
+  width: 500px;
+  font-size: 25px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.button-alink {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-alink .log {
+  height: 50px;
+  width: 500px;
+  font-size: 25px;
+  margin-top: 15px;
+}
+.login a{ 
+  text-decoration: none;
+  color : black;
+  font-size: 20px;
+  border-style: solid;
+  border: black;
+  padding: 10px;
 }

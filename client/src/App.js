@@ -11,7 +11,7 @@ import Home from "./Components/Home";
 import CreateGame from "./Components/CreateGame";
 import ListGame from "./Components/ListGame";
 import DetailGame from "./Components/DetailGame";
-import EditProfile from "./Components/auth/EditProfile";
+import EditProfile from "./Components/Profile/EditProfile";
 
 
 
@@ -45,7 +45,7 @@ class App extends Component {
 
   componentDidMount() {
     this.fetchTheUser();
-    console.log('conf :',process.env)
+    //console.log('conf :',process.env)
   }
 
   render() {

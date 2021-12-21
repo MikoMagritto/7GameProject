@@ -9,3 +9,11 @@
 .EditProfile h1 {
   margin-right: 60px;
 }
+
+.formCG input{
+  height: 50px;
+  width: 500px;
+  font-size: 25px;
+  padding: 15px;
+  margin-top: 15px;
+}

@@ -72,10 +72,6 @@ export default class DetailGame extends Component {
             <div className="partie1">
               <img src={this.state.game.field.img} />
             </div>
-            {/* <div>
-              <h1>Name</h1>
-              <span> {this.state.game.name}</span>
-            </div> */}
             <div className="partie2">
               <div className="FieldDataEtBtn">
                 <div className="FieldData">
