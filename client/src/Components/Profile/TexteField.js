@@ -3,7 +3,7 @@ import React from 'react'
 import { ErrorMessage} from 'formik';
 
 
-export const TexteField = ({label,name,value,onChange,...props}) => {
+export const TexteField = ({label,name,value,onChange,type,...props}) => {
  
   return (
     <div>
@@ -12,6 +12,7 @@ export const TexteField = ({label,name,value,onChange,...props}) => {
       id={name}
       name= {name}
       className="inputEdit"
+      type={type}
       {...props}
 
       autoComplete="off"

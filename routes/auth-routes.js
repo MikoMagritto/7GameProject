@@ -51,7 +51,7 @@ authRoutes.post("/signup", (req, res, next) => {
         height: height,
         level: level,
         role: role,
-        avatar: avatar
+        avatar: avatar,
       });
 
       // if (!req.file) {
@@ -109,11 +109,13 @@ authRoutes.get("/loggedin", (req, res, next) => {
 });
 //EDIT
 authRoutes.put("/edit/:id", (req, res, next) => {
-  //console.log("editRoad")
-  const { username, email, age, height, level } = req.body;
-  const data = { username, email, age, height, level };
+  
+  
+  const { username, email, age, height, level, avatar } = req.body;
+  const data = { username, email, age, height, level, avatar };
   const id = req.params.id;
-  console.log("id: ", id);
+  
+  //console.log("id: ", id);
   if (!req.session.currentUser) {
     res.status(401).json({ message: "You need to be logged in!" });
     return;

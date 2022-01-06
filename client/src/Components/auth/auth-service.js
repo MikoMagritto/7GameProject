@@ -31,7 +31,7 @@ function loggedin() {
 export { loggedin }
 
 function uploadFile(file) {
-    console.log("upload time", file);
+    console.log("upload file", file);
     return service.post('/upload', file)
         .then(response => response.data)
 }

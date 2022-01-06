@@ -19,11 +19,34 @@ export default class EditProfile extends Component {
   };
 
   handleFormSubmit = (values) => {
-    console.log("values ", values.username);
+    console.log("values ", values);
     const username = values.username
+    const {avatar} = values
+    console.log("avatar",avatar)
 
+    const uploadData = new FormData();
+    // uploadData.append({"avatar": avatar});
+
+    uploadData.append('avatar', avatar.files[0], 'photo.jpg')
+
+    console.log("uploadData : ", uploadData )
+
+    uploadFile(uploadData)
+    .then((response) => {
+      console.log("response.avatar is: ", response);
+      // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+      // this.setState({ avatar: response.avatar });
+      return response.avatar
+    })
+    .catch((err) => {
+      console.log("Error while uploading the file: ", err);
+    });
+
+    // const cloudinaryUpload = await(this.fileChange(avatar))
+    // console.log("cloudinaryUpload", cloudinaryUpload)
 
     // const { username, email, height, age, level, avatar } = this.state;
+
     const id = this.props.userInSession._id;
 
     axios
@@ -35,7 +58,7 @@ export default class EditProfile extends Component {
         { withCredentials: true }
       )
       .then((response) => {
-        // console.log("response", response);
+        //console.log("response", response);
         this.props.updateUser(response.data);
         this.props.history.push("/auth");
       });
@@ -47,19 +70,20 @@ export default class EditProfile extends Component {
     this.setState({ [name]: value });
   };
 
-  fileChange = (e) => {
-    console.log("The file to be uploaded is: ", e.target.files[0]);
+  fileChange = (avatar) => {
+    //console.log("The file to be uploaded is: ", e.target.files[0]);
 
     const uploadData = new FormData();
     // imageUrl => this name has to be the same as in the model since we pass
     // req.body to .create() method when creating a new thing in '/api/things/create' POST route
-    uploadData.append("avatar", e.target.files[0]);
+    uploadData.append("avatar", avatar);
 
     uploadFile(uploadData)
       .then((response) => {
-        console.log("response is: ", response);
+        //console.log("response is: ", response);
         // after the console.log we can see that response carries 'secure_url' which we can use to update the state
-        this.setState({ avatar: response.avatar });
+        // this.setState({ avatar: response.avatar });
+        return response.avatar
       })
       .catch((err) => {
         console.log("Error while uploading the file: ", err);
@@ -92,14 +116,14 @@ export default class EditProfile extends Component {
           }}
           validationSchema={validate}
         >
-          {(formik) => (
+          {(formik, form) => (
             <div>
               <h1>Edit Profile</h1>
-              {console.log("Object formik : ", formik.values)}
+              {/* {console.log("Object formik : ", formik.values)} */}
               <Form>
                 <Field name="username">
                   {({ field }) => {
-                    console.log(field);
+                    //console.log(field);
                     return (
                       <TexteField
                         label="Username"
@@ -165,14 +189,17 @@ export default class EditProfile extends Component {
                     );
                   }}
                 </Field>
+                
                 <Field name="avatar">
-                  {({ field }) => {
+                  {({ field,form }) => {
+                    //console.log("field avatar : ",field)
                     return (
                       <TexteField
-                        label="Picture"
-                        name={field.name}
+                        label="Image"
+                        name= {field.name}
                         value={field.value}
-                        onChange={field.onChange}
+                        // onChange={field.onChange}
+                        onChange={(e) => form.setFieldValue('avatar',e.currentTarget.files[0])}
                         type="file"
                       />
                     );
